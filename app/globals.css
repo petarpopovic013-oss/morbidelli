@@ -2,51 +2,30 @@
 
 @theme {
   /* Fonts mapped to CSS variables set in Layout */
-  --font-montserrat: var(--font-montserrat), sans-serif;
-  --font-inter: var(--font-inter), sans-serif;
+  --font-replica: var(--font-replica), sans-serif;
+  --font-replica-light: var(--font-replica-light), sans-serif;
 
-  /* Brand Colors from Stitch Morbidelli Serbia (Dark Fix) */
-  --color-background: #131313;
-  --color-surface: #131313;
-  --color-surface-dim: #131313;
-  --color-surface-bright: #393939;
-  --color-surface-container-lowest: #0e0e0e;
-  --color-surface-container-low: #1b1b1b;
-  --color-surface-container: #1f1f1f;
-  --color-surface-container-high: #2a2a2a;
-  --color-surface-container-highest: #353535;
-  --color-on-surface: #e2e2e2;
-  --color-on-surface-variant: #c4c7c8;
-  --color-inverse-surface: #e2e2e2;
-  --color-inverse-on-surface: #303030;
+  /* Brand Colors from User Request */
+  --color-background: #ffffff;
+  --color-surface: #ffffff;
+  --color-surface-dim: #f3f4f6;
+  --color-surface-bright: #ffffff;
+  --color-on-surface: #000000;
+  --color-on-surface-variant: #333333;
+  --color-inverse-surface: #000000;
+  --color-inverse-on-surface: #ffffff;
   
-  --color-outline: #8e9192;
-  --color-outline-variant: #444748;
-  --color-surface-tint: #c6c6c7;
+  --color-primary: #000000;
+  --color-on-primary: #ffffff;
   
-  --color-primary: #ffffff;
-  --color-on-primary: #2f3131;
-  --color-primary-container: #e2e2e2;
-  --color-on-primary-container: #636565;
-  --color-inverse-primary: #5d5f5f;
+  --color-secondary: #5ACCF0; /* Cyan */
+  --color-on-secondary: #ffffff;
   
-  --color-secondary: #63d4f8;
-  --color-on-secondary: #003543;
-  --color-secondary-container: #0e9dc0;
-  --color-on-secondary-container: #002e3a;
+  --color-tertiary: #FF212A; /* Red */
+  --color-on-tertiary: #ffffff;
   
-  --color-tertiary: #ffffff;
-  --color-on-tertiary: #313030;
-  --color-tertiary-container: #e5e2e1;
-  --color-on-tertiary-container: #656464;
-  
-  --color-error: #ffb4ab;
-  --color-on-error: #690005;
-  --color-error-container: #93000a;
-  --color-on-error-container: #ffdad6;
-  
-  --color-engine-gray: #333333;
   --color-track-cyan: #5ACCF0;
+  --color-track-red: #FF212A;
 
   /* Custom sizes */
   --spacing-gutter: 24px;
@@ -70,14 +49,14 @@
 }
 
 :root {
-  --background: #131313;
-  --foreground: #e2e2e2;
+  --background: #ffffff;
+  --foreground: #000000;
 }
 
 body {
-  background-color: #131313;
-  color: #e2e2e2;
-  font-family: var(--font-inter), sans-serif;
+  background-color: #ffffff;
+  color: #000000;
+  font-family: var(--font-replica), sans-serif;
   overflow-x: hidden;
 }
 
@@ -86,18 +65,18 @@ body {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #0e0e0e;
+  background: #f1f1f1;
 }
 ::-webkit-scrollbar-thumb {
-  background: #2a2a2a;
+  background: #c1c1c1;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #63d4f8;
+  background: #5ACCF0;
 }
 
 /* Premium selection colors */
 ::selection {
   background-color: #5ACCF0;
-  color: #131313;
+  color: #ffffff;
 }

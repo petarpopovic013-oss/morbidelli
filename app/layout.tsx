@@ -1,22 +1,37 @@
 import type { Metadata } from "next";
-import { Montserrat, Inter } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const montserrat = Montserrat({
-  subsets: ["latin", "latin-ext"],
-  variable: "--font-montserrat",
-  weight: ["300", "600", "700"],
+const replica = localFont({
+  src: [
+    {
+      path: "./fonts/Replica-Light.ttf",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "./fonts/ReplicaPro.ttf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "./fonts/Replica-Bold.ttf",
+      weight: "700",
+      style: "normal",
+    }
+  ],
+  variable: "--font-replica",
 });
 
-const inter = Inter({
-  subsets: ["latin", "latin-ext"],
-  variable: "--font-inter",
-  weight: ["300", "600"],
+const replicaLight = localFont({
+  src: "./fonts/Replica-Light.ttf",
+  variable: "--font-replica-light",
+  weight: "300",
 });
 
 export const metadata: Metadata = {
-  title: "Morbidelli Srbija - Stvoren za hrabre",
-  description: "Zvanični uvoznik i distributer Morbidelli motocikala za Srbiju. Otkrijte modele C652V, N125V i T502X.",
+  title: "Morbidelli",
+  description: "Dizajnirano za hrabre.",
 };
 
 export default function RootLayout({
@@ -26,8 +41,8 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="sr"
-      className={`${montserrat.variable} ${inter.variable} h-full antialiased dark`}
+      lang="en"
+      className={`${replica.variable} ${replicaLight.variable} h-full antialiased`}
     >
       <head>
         <link

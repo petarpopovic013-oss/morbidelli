@@ -3,7 +3,7 @@ export default function Location() {
   const mapExternalUrl = "https://maps.google.com/?q=Dr+Svetislava+Kasapinovica+9,+Novi+Sad";
 
   return (
-    <section className="bg-background py-section-gap px-margin-mobile md:px-gutter w-full border-t border-white/5 select-none">
+    <section id="posetite-nas" className="bg-background py-section-gap px-margin-mobile md:px-gutter w-full border-t border-white/5 select-none">
       <div className="max-w-container-max mx-auto">
         {/* Title Header */}
         <div className="text-left md:text-center mb-12 md:mb-16">

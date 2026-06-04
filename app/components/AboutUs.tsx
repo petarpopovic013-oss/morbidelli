@@ -1,59 +1,69 @@
+import Link from "next/link";
+import Image from "next/image";
+
 export default function AboutUs() {
   return (
-    <section className="bg-surface-container-low py-section-gap px-margin-mobile md:px-gutter w-full border-t border-white/5 select-none">
-      <div className="max-w-container-max mx-auto">
-        {/* Title Header */}
-        <div className="text-left md:text-center mb-12 md:mb-16">
-          <h2 className="font-montserrat text-3xl md:text-5xl text-primary uppercase tracking-tight font-bold">
-            O Nama
-          </h2>
-          <div className="w-20 h-1 bg-secondary md:mx-auto mt-4"></div>
-        </div>
+    <section id="o-nama" className="w-full bg-black text-white flex flex-col lg:flex-row overflow-hidden font-replica border-t border-white/10">
+      {/* Image Side */}
+      <div className="w-full lg:w-1/2 relative min-h-[400px] lg:min-h-[600px] group">
+        <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors z-10 duration-700"></div>
+        <div
+          className="absolute inset-0 bg-center bg-cover transition-transform duration-1000 group-hover:scale-105"
+          style={{ backgroundImage: 'url("/photos/Photo-92---Historic-Morbidelli-motorcycles-on-display-at-the-Morbidelli-Museum--including-the-world-champion-bike.jpg")' }}
+        ></div>
+      </div>
 
-        {/* Editorial Content Split */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-start mt-8">
-          {/* Left Column: Brand Quote */}
-          <div className="lg:col-span-5 flex flex-col gap-6">
-            <span className="font-inter text-secondary text-[12px] uppercase tracking-[0.2em] font-semibold">
-              Kult nasleđa & brzine
-            </span>
-            <blockquote className="font-montserrat text-3xl md:text-4xl font-light text-primary leading-tight tracking-tight">
-              Strast oblikovana preciznošću. Italijanska moto kultura na putevima Srbije.
-            </blockquote>
-            <p className="font-inter text-[15px] text-on-surface-variant/80 leading-relaxed font-light mt-4">
-              Morbidelli donosi duh trkačke istorije direktno na ulice, kombinujući napredni inženjering sa bezvremenskim dizajnom.
-            </p>
+      {/* Text Side */}
+      <div className="w-full lg:w-1/2 flex flex-col justify-center p-12 lg:p-24 xl:p-32 bg-black relative">
+        <div className="relative z-20">
+          <div className="flex items-center gap-4 mb-6">
+            <div className="w-12 h-[2px] bg-track-cyan"></div>
+            <h2 className="text-sm font-replica uppercase tracking-widest text-track-cyan">O nama</h2>
           </div>
 
-          {/* Right Column: Paragraph Blocks */}
-          <div className="lg:col-span-7 flex flex-col gap-8">
-            <p className="font-inter text-base md:text-lg text-on-surface-variant leading-relaxed font-light">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            </p>
-            <p className="font-inter text-[15px] text-on-surface-variant/70 leading-relaxed font-light">
-              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in dui ac ipsum velit.
-            </p>
-            <div className="w-full h-[1px] bg-white/5 my-2"></div>
-            <div className="grid grid-cols-2 gap-8">
-              <div>
-                <span className="font-montserrat text-3xl md:text-4xl font-semibold text-secondary block mb-1">
-                  19 +
-                </span>
-                <span className="font-inter text-[11px] text-on-surface-variant/60 uppercase tracking-widest font-semibold">
-                  Godina poslovanja u Srbiji
-                </span>
-              </div>
-              <div>
-                <span className="font-montserrat text-3xl md:text-4xl font-semibold text-secondary block mb-1">
-                  Kredit
-                </span>
-                <span className="font-inter text-[11px] text-on-surface-variant/60 uppercase tracking-widest font-semibold">
-                  Mogućnost kupovine na kredit
-                </span>
-              </div>
+          <h3 className="text-4xl md:text-5xl font-replica-light mb-8 leading-tight">
+            Italijanska strast, <br />
+            <span className="font-replica text-white">trkačko nasleđe.</span>
+          </h3>
+
+          <p className="text-lg font-replica-light text-gray-400 mb-12 leading-relaxed max-w-xl">
+            Morbidelli predstavlja savršen spoj bogate trkačke istorije i modernih tehnologija.
+            Naši motocikli nisu samo prevozno sredstvo, već autentičan izraz stila i vrhunske inženjerske perfekcije.
+            Kreirani sa strašću, dizajnirani da probude emocije i pruže nezaboravno iskustvo na svakom kilometru.
+            Pridružite se kultu nasleđa i brzine.
+          </p>
+
+          <div className="grid grid-cols-2 gap-8 mb-12">
+            <div>
+              <span className="font-replica text-3xl md:text-4xl text-white block mb-1">
+                58+
+              </span>
+              <span className="font-replica-light text-[11px] text-gray-500 uppercase tracking-widest">
+                Godina sa vama
+              </span>
+            </div>
+            <div>
+              <span className="font-replica text-3xl md:text-4xl text-white block mb-1">
+                Kredit
+              </span>
+              <span className="font-replica-light text-[11px] text-gray-500 uppercase tracking-widest">
+                Mogućnost kupovine
+              </span>
             </div>
           </div>
+
+          <Link href="#" className="inline-flex items-center gap-4 group">
+            <span className="text-sm font-replica uppercase tracking-wider group-hover:text-track-cyan transition-colors">Otkrijte našu priču</span>
+            <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:border-track-cyan group-hover:bg-track-cyan/10 transition-all duration-300">
+              <svg width="16" height="16" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-white group-hover:text-track-cyan transform group-hover:translate-x-1 transition-all duration-300">
+                <path d="M1 7H13M13 7L7 1M13 7L7 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
+          </Link>
         </div>
+
+        {/* Decorative background glow */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-track-cyan/5 rounded-full blur-3xl pointer-events-none"></div>
       </div>
     </section>
   );
