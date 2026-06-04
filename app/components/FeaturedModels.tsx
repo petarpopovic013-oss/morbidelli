@@ -7,7 +7,7 @@ export default function FeaturedModels() {
     <section className="w-full flex flex-col font-replica">
       {/* Parallax Banner */}
       <div 
-        className="relative w-full h-[500px] md:h-[700px] flex items-center justify-center bg-fixed bg-center bg-cover group overflow-hidden"
+        className="relative w-full h-[500px] md:h-[700px] flex items-center justify-center bg-scroll md:bg-fixed bg-center bg-cover group overflow-hidden"
         style={{ backgroundImage: 'url("/photos/FB-Cover-Photo-May-2024.jpg")' }}
       >
         <div className="absolute inset-0 bg-black/70 group-hover:bg-black/60 transition-colors duration-700 z-10"></div>
