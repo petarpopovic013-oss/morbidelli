@@ -6,17 +6,19 @@ import { Globe, ChevronDown } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="relative w-full bg-[#101010] text-white py-16 overflow-hidden">
-      {/* Background Watermark (Dark theme adapted) */}
-      <div className="absolute top-0 left-[-15%] h-[150%] opacity-5 pointer-events-none flex items-center justify-start z-0">
+    <footer className="relative w-full bg-white text-white py-16 overflow-hidden">
+      {/* Background Watermark */}
+      <div className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-[45%] w-[1040px] h-[1040px] lg:w-[1560px] lg:h-[1560px] pointer-events-none z-0">
         <Image
           src="/logos/Heritage-Icon-Logo-Solid-Black-WB.webp"
           alt="Watermark"
-          width={800}
-          height={800}
-          className="object-contain h-full w-auto brightness-0 invert"
+          fill
+          className="object-contain"
         />
       </div>
+
+      {/* Black Overlay */}
+      <div className="absolute inset-0 bg-black/90 pointer-events-none z-0"></div>
 
       <div className="container mx-auto px-6 lg:px-12 max-w-[1440px] relative z-10">
         
