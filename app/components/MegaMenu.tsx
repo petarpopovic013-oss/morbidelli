@@ -73,65 +73,87 @@ export default function MegaMenu({ isOpen, onClose, offsetLeft = 0 }: MegaMenuPr
   );
 
   return (
-    <div className="absolute top-full left-0 w-full bg-white shadow-xl border-t border-gray-100 flex z-[60]">
+    <div className="absolute top-[70px] lg:top-full left-0 w-full bg-white lg:shadow-xl border-t border-gray-100 flex flex-col lg:flex-row z-[60] h-[calc(100vh-70px)] lg:h-auto overflow-y-auto lg:overflow-visible">
+      {/* 
+        Mobilni prikaz (ispod lg): Kategorije levo, Modeli desno
+        Desktop prikaz (lg i iznad): Kategorije -> Modeli -> Slika (sa offsetLeft)
+      */}
       <div 
-        className="w-full flex" 
-        style={{ paddingLeft: offsetLeft > 0 ? offsetLeft : undefined }}
+        className="w-full flex flex-col lg:flex-row p-4 lg:p-0" 
+        style={{ paddingLeft: typeof window !== 'undefined' && window.innerWidth >= 1024 && offsetLeft > 0 ? offsetLeft : undefined }}
       >
-        {/* Categories Column */}
-        <div className="w-auto pr-8 border-r border-gray-200 pt-8 pb-20">
-          <ul className="flex flex-col gap-3">
-            {CATEGORIES.map((cat) => (
-              <li
-                key={cat}
-                className={`cursor-pointer font-replica font-bold text-xl tracking-tight uppercase transition-colors ${
-                  activeCategory === cat ? "text-track-cyan" : "text-gray-600 hover:text-black"
-                }`}
-                onMouseEnter={() => setActiveCategory(cat)}
-              >
-                {CATEGORY_DISPLAY_NAMES[cat] || cat}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Motorcycles Column */}
-        <div className="w-auto px-8 min-w-[200px] border-r border-gray-100 pt-8 pb-20">
-          <ul className="flex flex-col gap-3">
-            {currentCategoryMotos.length > 0 ? (
-              currentCategoryMotos.map((moto) => (
+        <div className="flex w-full lg:w-auto">
+          {/* Categories Column */}
+          <div className="w-1/2 lg:w-auto lg:pr-8 border-r border-gray-200 pt-4 lg:pt-8 pb-4 lg:pb-20">
+            <ul className="flex flex-col gap-4 lg:gap-3">
+              {CATEGORIES.map((cat) => (
                 <li
-                  key={moto.id}
-                  className={`cursor-pointer font-replica text-sm tracking-wide transition-colors ${
-                    activeMotorcycle?.id === moto.id ? "text-track-cyan" : "text-gray-500 hover:text-black"
+                  key={cat}
+                  className={`cursor-pointer font-replica font-bold text-[15px] lg:text-xl tracking-tight uppercase transition-colors ${
+                    activeCategory === cat ? "text-track-cyan" : "text-gray-600 hover:text-black"
                   }`}
-                  onMouseEnter={() => setActiveMotorcycle(moto)}
+                  onMouseEnter={() => {
+                    // Na mobilnom mozda bolji onClick za kategorije, ali hover ce raditi ok ako se tapne
+                    setActiveCategory(cat)
+                  }}
+                  onClick={() => setActiveCategory(cat)}
                 >
-                  <Link href={`/motorcycles/${moto.slug}`} onClick={onClose} className="block w-full">
-                    {moto.name.replace('Morbidelli ', '').replace('MBP ', '')}
-                  </Link>
+                  {CATEGORY_DISPLAY_NAMES[cat] || cat}
                 </li>
-              ))
-            ) : (
-              <li className="text-gray-400 text-sm font-replica">Nema modela</li>
-            )}
-          </ul>
+              ))}
+            </ul>
+          </div>
+
+          {/* Motorcycles Column */}
+          <div className="w-1/2 lg:w-auto px-4 lg:px-8 lg:min-w-[200px] lg:border-r lg:border-gray-100 pt-4 lg:pt-8 pb-4 lg:pb-20">
+            <ul className="flex flex-col gap-4 lg:gap-3">
+              {currentCategoryMotos.length > 0 ? (
+                currentCategoryMotos.map((moto) => (
+                  <li
+                    key={moto.id}
+                    className={`cursor-pointer font-replica text-[15px] lg:text-sm tracking-wide transition-colors ${
+                      activeMotorcycle?.id === moto.id ? "text-track-cyan" : "text-gray-600 lg:text-gray-500 hover:text-black"
+                    }`}
+                    onMouseEnter={() => setActiveMotorcycle(moto)}
+                    onClick={() => setActiveMotorcycle(moto)}
+                  >
+                    <Link href={`/motorcycles/${moto.slug}`} onClick={onClose} className="block w-full">
+                      {moto.name.replace('Morbidelli ', '').replace('MBP ', '')}
+                    </Link>
+                  </li>
+                ))
+              ) : (
+                <li className="text-gray-400 text-sm font-replica">Nema modela</li>
+              )}
+            </ul>
+          </div>
         </div>
 
-        {/* Image Column */}
-        <div className="flex-[2] pl-16 flex items-center justify-start pt-8 pb-20">
+        {/* Image Column & Button - Always visible below on mobile, to the right on desktop */}
+        <div className="flex-1 mt-8 lg:mt-0 lg:pl-16 flex flex-col lg:flex-row items-center justify-center lg:justify-start pt-4 lg:pt-8 pb-10 lg:pb-20 border-t lg:border-t-0 border-gray-100">
           {activeMotorcycle && activeMotorcycle.image_url ? (
-            <div className="relative w-full max-w-[600px] aspect-[4/3]">
-              <Image
-                src={activeMotorcycle.image_url}
-                alt={activeMotorcycle.name}
-                fill
-                className="object-contain"
-                sizes="(max-width: 768px) 100vw, 600px"
-              />
+            <div className="flex flex-col items-center w-full">
+              <div className="relative w-full max-w-[400px] lg:max-w-[600px] aspect-[4/3] mb-6 lg:mb-0">
+                <Image
+                  src={activeMotorcycle.image_url}
+                  alt={activeMotorcycle.name}
+                  fill
+                  className="object-contain"
+                  sizes="(max-width: 768px) 100vw, 600px"
+                />
+              </div>
+              
+              {/* GO MODEL button - shown only on mobile */}
+              <Link 
+                href={`/motorcycles/${activeMotorcycle.slug}`}
+                onClick={onClose}
+                className="lg:hidden w-full bg-[#42D2F2] hover:bg-[#2CBEE0] transition-colors text-white font-replica font-bold text-center py-4 rounded-md uppercase tracking-wider mt-4"
+              >
+                GO MODEL
+              </Link>
             </div>
           ) : (
-            <div className="text-gray-300 font-replica">Uskoro...</div>
+            <div className="text-gray-300 font-replica h-[200px] flex items-center">Uskoro slika modela...</div>
           )}
         </div>
       </div>
