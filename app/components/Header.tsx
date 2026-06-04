@@ -91,7 +91,7 @@ export default function Header() {
         </div>
 
         {/* Center Section on Mobile, Left Section on Desktop: Logo */}
-        <div className="flex-1 lg:flex-none flex items-center justify-center lg:justify-start">
+        <div className="flex-1 flex items-center justify-center lg:justify-start">
           <Link href="/" className="flex items-center relative z-10 shrink-0">
             <Image
               src="/logos/Full-Logo-Solid-Black-WB.webp"
@@ -120,7 +120,7 @@ export default function Header() {
         </div>
 
         {/* Center Section: Desktop Navigation */}
-        <nav className="hidden lg:flex items-center justify-center gap-4 xl:gap-8 font-replica font-medium text-sm tracking-wider shrink-0 h-full ml-8">
+        <nav className="hidden lg:flex items-center justify-center gap-4 xl:gap-8 font-replica font-medium text-sm tracking-wider shrink-0 h-full">
           {/* Primary: MODELS */}
           <div className="flex items-center h-full">
             <div 
