@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
-import { ChevronDown, Globe } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import MegaMenu from "./MegaMenu";
 
 export default function Header() {

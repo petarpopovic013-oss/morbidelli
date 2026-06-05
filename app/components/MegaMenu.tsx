@@ -49,23 +49,24 @@ export default function MegaMenu({ isOpen, onClose, offsetLeft = 0 }: MegaMenuPr
 
       if (data) {
         setMotorcycles(data);
+        const categoryMotos = data.filter(
+          (m: Motorcycle) => m.category.toLowerCase() === "trail"
+        );
+        if (categoryMotos.length > 0) {
+          setActiveMotorcycle(categoryMotos[0]);
+        }
       }
     }
     fetchMotorcycles();
   }, []);
 
-  // Update active motorcycle when category changes
-  useEffect(() => {
+  const handleCategoryChange = (cat: string) => {
+    setActiveCategory(cat);
     const categoryMotos = motorcycles.filter(
-      (m) => m.category.toLowerCase() === activeCategory.toLowerCase()
+      (m) => m.category.toLowerCase() === cat.toLowerCase()
     );
-    if (categoryMotos.length > 0) {
-      setActiveMotorcycle(categoryMotos[0]);
-    } else {
-      setActiveMotorcycle(null);
-    }
-  }, [activeCategory, motorcycles]);
-
+    setActiveMotorcycle(categoryMotos.length > 0 ? categoryMotos[0] : null);
+  };
   if (!isOpen) return null;
 
   const currentCategoryMotos = motorcycles.filter(
@@ -94,9 +95,9 @@ export default function MegaMenu({ isOpen, onClose, offsetLeft = 0 }: MegaMenuPr
                   }`}
                   onMouseEnter={() => {
                     // Na mobilnom mozda bolji onClick za kategorije, ali hover ce raditi ok ako se tapne
-                    setActiveCategory(cat)
+                    handleCategoryChange(cat)
                   }}
-                  onClick={() => setActiveCategory(cat)}
+                  onClick={() => handleCategoryChange(cat)}
                 >
                   {CATEGORY_DISPLAY_NAMES[cat] || cat}
                 </li>

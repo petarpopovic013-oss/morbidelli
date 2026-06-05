@@ -13,7 +13,7 @@ export type Motorcycle = {
   short_description: string | null
   image_url: string
   gallery: string[] | null
-  specifications: any | null
+  specifications: unknown
   created_at: string
 
   // Nova polja

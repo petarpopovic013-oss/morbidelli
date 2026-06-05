@@ -20,7 +20,7 @@ export async function uploadImage(formData: FormData) {
     const fileName = `${crypto.randomUUID()}.webp`
     const filePath = `${fileName}` // in bucket morbidelli_images
 
-    const { data, error } = await supabaseAdmin.storage
+    const { error } = await supabaseAdmin.storage
       .from('morbidelli_images')
       .upload(filePath, webpBuffer, {
         contentType: 'image/webp',
@@ -37,9 +37,9 @@ export async function uploadImage(formData: FormData) {
       .getPublicUrl(filePath)
 
     return { publicUrl: publicUrlData.publicUrl, path: filePath }
-  } catch (err: any) {
+  } catch (err: unknown) {
     console.error('Error processing image:', err)
-    return { error: 'Greška pri obradi slike (WEBP konverzija). ' + (err.message || '') }
+    return { error: 'Greška pri obradi slike (WEBP konverzija). ' + (err instanceof Error ? err.message : String(err)) }
   }
 }
 

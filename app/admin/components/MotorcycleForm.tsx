@@ -19,6 +19,20 @@ function generateSlug(text: string) {
     .replace(/\-\-+/g, '-')
 }
 
+const InputLabel = ({ children }: { children: React.ReactNode }) => (
+  <label className="block text-black text-[10px] font-replica font-bold uppercase tracking-widest mb-2">
+    {children}
+  </label>
+);
+
+const SectionHeader = ({ title, num }: { title: string, num: string }) => (
+  <div className="border-b-2 border-black pb-4 mb-8 mt-16 first:mt-0">
+    <h2 className="text-3xl font-replica font-bold text-black uppercase tracking-tight">
+      {num}. {title}
+    </h2>
+  </div>
+);
+
 export function MotorcycleForm({ initialData }: { initialData?: Motorcycle }) {
   const router = useRouter()
   const [isPending, startTransition] = useTransition()
@@ -33,7 +47,7 @@ export function MotorcycleForm({ initialData }: { initialData?: Motorcycle }) {
 
   // Images
   const [mainImage, setMainImage] = useState<File | null>(null)
-  const [mainImageUrl, setMainImageUrl] = useState(initialData?.image_url || '')
+  const [mainImageUrl] = useState(initialData?.image_url || '')
   const [existingGallery, setExistingGallery] = useState<string[]>(initialData?.gallery || [])
   const [newGalleryFiles, setNewGalleryFiles] = useState<File[]>([])
   const [imagesToDelete, setImagesToDelete] = useState<string[]>([])
@@ -42,7 +56,7 @@ export function MotorcycleForm({ initialData }: { initialData?: Motorcycle }) {
   const [extraSpecs, setExtraSpecs] = useState<{ id: string; category: string; label: string; value: string }[]>(() => {
     if (!initialData?.specifications) return []
     if (Array.isArray(initialData.specifications)) {
-      return initialData.specifications.map((s: any, i: number) => ({
+      return initialData.specifications.map((s: Record<string, string>, i: number) => ({
         id: s.id || Date.now().toString() + i,
         category: s.category || '',
         label: s.label || s.key || '',
@@ -307,26 +321,14 @@ export function MotorcycleForm({ initialData }: { initialData?: Motorcycle }) {
           }
           router.push('/admin')
         }
-      } catch (err: any) {
-        setError(err.message || 'Došlo je do greške prilikom čuvanja. Ako je problem sa slikom, proverite veličinu (max 5MB).')
+      } catch (err: unknown) {
+        setError(err instanceof Error ? err.message : 'Došlo je do greške prilikom čuvanja. Ako je problem sa slikom, proverite veličinu (max 5MB).')
         window.scrollTo({ top: 0, behavior: 'smooth' })
       }
     })
   }
 
-  const InputLabel = ({ children }: { children: React.ReactNode }) => (
-    <label className="block text-black text-[10px] font-replica font-bold uppercase tracking-widest mb-2">
-      {children}
-    </label>
-  );
 
-  const SectionHeader = ({ title, num }: { title: string, num: string }) => (
-    <div className="border-b-2 border-black pb-4 mb-8 mt-16 first:mt-0">
-      <h2 className="text-3xl font-replica font-bold text-black uppercase tracking-tight">
-        {num}. {title}
-      </h2>
-    </div>
-  );
 
   return (
     <div className="max-w-4xl mx-auto py-12">
@@ -763,7 +765,7 @@ export function MotorcycleForm({ initialData }: { initialData?: Motorcycle }) {
         <div className="bg-gray-50 p-8 border border-gray-200">
           <SectionHeader num="10" title="Dodatne specifikacije" />
           <p className="text-gray-500 font-replica-light text-sm mb-6">
-            Ovde možete dodati sve specifikacije koje se ne uklapaju u standardna polja iznad. Obavezno unesite kategoriju kojoj pripadaju (npr. "Komfor", "Multimedija", "Povezivost").
+            Ovde možete dodati sve specifikacije koje se ne uklapaju u standardna polja iznad. Obavezno unesite kategoriju kojoj pripadaju (npr. &quot;Komfor&quot;, &quot;Multimedija&quot;, &quot;Povezivost&quot;).
           </p>
           
           <div className="space-y-4">

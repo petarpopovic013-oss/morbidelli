@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Plus, Edit3, Bike, ArrowRight } from 'lucide-react'
+import { Plus, Bike, ArrowRight } from 'lucide-react'
 import { DeleteMotorcycleButton } from './DeleteMotorcycleButton'
 import { Motorcycle } from '@/app/actions/motorcycles'
 

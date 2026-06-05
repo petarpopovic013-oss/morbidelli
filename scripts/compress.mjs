@@ -1,6 +1,10 @@
-const sharp = require('sharp');
-const fs = require('fs');
-const path = require('path');
+import sharp from 'sharp';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const inputDir = path.join(__dirname, '../../Materials/Official/logos/imagerelay-download-2026-06-04');
 const outputDir = path.join(__dirname, '../public/logos');
