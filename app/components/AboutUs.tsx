@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function AboutUs() {
   return (
-    <section id="o-nama" className="w-full bg-white text-black flex flex-col lg:flex-row overflow-hidden font-replica border-t border-black/10">
+    <section id="o-nama" className="w-full bg-white text-black flex flex-col lg:flex-row overflow-hidden font-replica">
       {/* Image Side */}
       <div className="w-full lg:w-1/2 relative min-h-[400px] lg:min-h-[600px] group">
         <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors z-10 duration-700"></div>

@@ -2,6 +2,7 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import FeaturedModels from "./components/FeaturedModels";
 import AboutUs from "./components/AboutUs";
+import ContactForm from "./components/ContactForm";
 import Footer from "./components/Footer";
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
         <Hero />
         <FeaturedModels />
         <AboutUs />
+        <ContactForm />
       </main>
       <Footer />
     </>
