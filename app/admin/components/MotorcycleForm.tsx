@@ -25,6 +25,64 @@ const InputLabel = ({ children }: { children: React.ReactNode }) => (
   </label>
 );
 
+const compressImage = async (file: File): Promise<File> => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = (event) => {
+      const img = new window.Image();
+      img.src = event.target?.result as string;
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        let width = img.width;
+        let height = img.height;
+        
+        // Max dimensions
+        const MAX_WIDTH = 1920;
+        const MAX_HEIGHT = 1080;
+        
+        if (width > height) {
+          if (width > MAX_WIDTH) {
+            height *= MAX_WIDTH / width;
+            width = MAX_WIDTH;
+          }
+        } else {
+          if (height > MAX_HEIGHT) {
+            width *= MAX_HEIGHT / height;
+            height = MAX_HEIGHT;
+          }
+        }
+        
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext('2d');
+        if (!ctx) {
+          resolve(file);
+          return;
+        }
+        ctx.drawImage(img, 0, 0, width, height);
+        
+        canvas.toBlob(
+          (blob) => {
+            if (blob) {
+              const newFile = new File([blob], file.name.replace(/\.[^/.]+$/, "") + ".webp", {
+                type: 'image/webp',
+              });
+              resolve(newFile);
+            } else {
+              resolve(file);
+            }
+          },
+          'image/webp',
+          0.8
+        );
+      };
+      img.onerror = () => resolve(file);
+    };
+    reader.onerror = () => resolve(file);
+  });
+};
+
 const SectionHeader = ({ title, num }: { title: string, num: string }) => (
   <div className="border-b-2 border-black pb-4 mb-8 mt-16 first:mt-0">
     <h2 className="text-3xl font-replica font-bold text-black uppercase tracking-tight">
@@ -161,8 +219,8 @@ export function MotorcycleForm({ initialData }: { initialData?: Motorcycle }) {
   const handleMainImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
     if (file) {
-      if (file.size > 5 * 1024 * 1024) {
-        setError('Glavna slika je prevelika (maksimalno 5MB).')
+      if (file.size > 10 * 1024 * 1024) {
+        setError('Glavna slika je prevelika (maksimalno 10MB).')
         window.scrollTo({ top: 0, behavior: 'smooth' })
         e.target.value = ''
         return
@@ -176,9 +234,9 @@ export function MotorcycleForm({ initialData }: { initialData?: Motorcycle }) {
   const handleGalleryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       const filesArray = Array.from(e.target.files)
-      const validFiles = filesArray.filter(f => f.size <= 5 * 1024 * 1024)
+      const validFiles = filesArray.filter(f => f.size <= 10 * 1024 * 1024)
       if (validFiles.length < filesArray.length) {
-        setError('Neke slike iz galerije su ignorisane jer su veće od dozvoljenih 5MB.')
+        setError('Neke slike iz galerije su ignorisane jer su veće od dozvoljenih 10MB.')
         window.scrollTo({ top: 0, behavior: 'smooth' })
       }
       setNewGalleryFiles(prev => [...prev, ...validFiles])
@@ -203,8 +261,9 @@ export function MotorcycleForm({ initialData }: { initialData?: Motorcycle }) {
         let finalImageUrl = mainImageUrl
         
         if (mainImage) {
+          const compressedMainImage = await compressImage(mainImage)
           const formData = new FormData()
-          formData.append('file', mainImage)
+          formData.append('file', compressedMainImage)
           const uploadRes = await uploadImage(formData)
           if (uploadRes.error) {
             setError(uploadRes.error)
@@ -226,8 +285,9 @@ export function MotorcycleForm({ initialData }: { initialData?: Motorcycle }) {
 
         const uploadedGalleryUrls: string[] = []
         for (const file of newGalleryFiles) {
+          const compressedFile = await compressImage(file)
           const formData = new FormData()
-          formData.append('file', file)
+          formData.append('file', compressedFile)
           const res = await uploadImage(formData)
           if (res.error) {
             setError(`Greška pri uploadu galerije: ${res.error}`)
@@ -322,7 +382,7 @@ export function MotorcycleForm({ initialData }: { initialData?: Motorcycle }) {
           router.push('/admin')
         }
       } catch (err: unknown) {
-        setError(err instanceof Error ? err.message : 'Došlo je do greške prilikom čuvanja. Ako je problem sa slikom, proverite veličinu (max 5MB).')
+        setError(err instanceof Error ? err.message : 'Došlo je do greške prilikom čuvanja. Ako je problem sa slikom, proverite veličinu (max 10MB).')
         window.scrollTo({ top: 0, behavior: 'smooth' })
       }
     })

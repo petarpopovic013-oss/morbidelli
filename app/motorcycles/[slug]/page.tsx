@@ -175,14 +175,14 @@ export default async function MotorcyclePage({ params }: { params: Promise<{ slu
       <main className="flex-grow flex flex-col w-full bg-[#E5E5E5] pt-[100px] min-h-screen">
         
         {/* Hero Section */}
-        <section className="w-full flex flex-col items-center pt-8 pb-12">
-          <div className="text-center mb-10">
-            <h1 className="text-4xl md:text-5xl font-replica font-bold text-black uppercase tracking-tight">
+        <section className="w-full flex flex-col items-center pt-8 pb-12 px-4">
+          <div className="text-center mb-6 md:mb-10 w-full">
+            <h1 className="text-3xl md:text-5xl font-replica font-bold text-black uppercase tracking-tight break-words">
               {cleanName}
             </h1>
           </div>
 
-          <div className="relative w-full max-w-5xl h-[40vh] md:h-[60vh] mb-12">
+          <div className="relative w-full max-w-5xl h-[30vh] md:h-[60vh] mb-8 md:mb-12">
             <Image
               src={motorcycle.image_url}
               alt={motorcycle.name}
@@ -194,33 +194,33 @@ export default async function MotorcyclePage({ params }: { params: Promise<{ slu
           </div>
 
           {/* Key Specs Bar */}
-          <div className="w-full bg-white shadow-sm border-y border-gray-100 max-w-5xl mx-auto rounded-md grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-gray-100 py-6 px-4">
-            <div className="flex flex-col px-4 py-2 md:py-0">
-              <span className="text-[10px] font-replica-light font-bold text-gray-500 uppercase tracking-widest mb-1">
+          <div className="w-full bg-white shadow-sm border-y md:border md:border-gray-100 max-w-5xl mx-auto md:rounded-md grid grid-cols-2 md:grid-cols-4 gap-y-6 md:gap-y-0 py-6 px-4">
+            <div className="flex flex-col px-2 md:px-4 border-r border-gray-100 text-center md:text-left">
+              <span className="text-[10px] md:text-[10px] font-replica-light font-bold text-gray-500 uppercase tracking-widest mb-1">
                 Početna Cena
               </span>
               <span className="text-sm md:text-base font-replica font-bold text-black">
                 {motorcycle.price ? `€${motorcycle.price.toLocaleString()}` : 'N/A'}
               </span>
             </div>
-            <div className="flex flex-col px-4 py-2 md:py-0">
-              <span className="text-[10px] font-replica-light font-bold text-gray-500 uppercase tracking-widest mb-1">
+            <div className="flex flex-col px-2 md:px-4 md:border-r md:border-gray-100 text-center md:text-left">
+              <span className="text-[10px] md:text-[10px] font-replica-light font-bold text-gray-500 uppercase tracking-widest mb-1">
                 Zapremina
               </span>
               <span className="text-sm md:text-base font-replica font-bold text-black">
                 {motorcycle.displacement ? `${motorcycle.displacement} cc` : 'N/A'}
               </span>
             </div>
-            <div className="flex flex-col px-4 py-2 md:py-0">
-              <span className="text-[10px] font-replica-light font-bold text-gray-500 uppercase tracking-widest mb-1">
+            <div className="flex flex-col px-2 md:px-4 border-r border-gray-100 md:border-none text-center md:text-left">
+              <span className="text-[10px] md:text-[10px] font-replica-light font-bold text-gray-500 uppercase tracking-widest mb-1">
                 Snaga
               </span>
               <span className="text-sm md:text-base font-replica font-bold text-black">
                 {motorcycle.power || 'N/A'}
               </span>
             </div>
-            <div className="flex flex-col px-4 py-2 md:py-0">
-              <span className="text-[10px] font-replica-light font-bold text-gray-500 uppercase tracking-widest mb-1">
+            <div className="flex flex-col px-2 md:px-4 text-center md:text-left">
+              <span className="text-[10px] md:text-[10px] font-replica-light font-bold text-gray-500 uppercase tracking-widest mb-1">
                 Maks. Obrtni moment
               </span>
               <span className="text-sm md:text-base font-replica font-bold text-black">

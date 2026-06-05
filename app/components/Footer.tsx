@@ -55,33 +55,25 @@ export default function Footer() {
         </div>
 
         {/* Links Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16 max-w-4xl mx-auto">
           {/* Column 1 */}
-          <div className="flex flex-col gap-3">
-            <h4 className="font-replica text-track-cyan text-xs mb-2 uppercase tracking-wide">MORBIDELLI INTERNACIONAL</h4>
-            <Link href="#" className="text-xs font-replica-light text-gray-300 hover:text-white transition-colors uppercase">PRIČE</Link>
-            <Link href="#" className="text-xs font-replica-light text-gray-300 hover:text-white transition-colors uppercase">VESTI</Link>
-            <Link href="#" className="text-xs font-replica-light text-gray-300 hover:text-white transition-colors uppercase">ČESTA PITANJA I KORISNIČKI SERVIS</Link>
-            <Link href="#" className="text-xs font-replica-light text-gray-300 hover:text-white transition-colors uppercase">POSTANITE DISTRIBUTER</Link>
+          <div className="flex flex-col gap-3 items-center md:items-start text-center md:text-left">
+            <h4 className="font-replica text-track-cyan text-xs mb-2 uppercase tracking-wide">BRZI LINKOVI</h4>
+            <Link href="/" className="text-xs font-replica-light text-gray-300 hover:text-white transition-colors uppercase">NASLOVNA</Link>
+            <Link href="/about" className="text-xs font-replica-light text-gray-300 hover:text-white transition-colors uppercase">O NAMA</Link>
+            <Link href="/news" className="text-xs font-replica-light text-gray-300 hover:text-white transition-colors uppercase">NOVOSTI</Link>
           </div>
 
           {/* Column 2 */}
-          <div className="flex flex-col gap-3">
-            <h4 className="font-replica text-track-cyan text-xs mb-2 uppercase tracking-wide">KOMPANIJA</h4>
-            <Link href="#" className="text-xs font-replica-light text-gray-300 hover:text-white transition-colors uppercase">O NAMA</Link>
-            <Link href="#" className="text-xs font-replica-light text-gray-300 hover:text-white transition-colors uppercase">RADITE U MORBIDELLIJU</Link>
+          <div className="flex flex-col gap-3 items-center md:items-start text-center md:text-left">
+            <h4 className="font-replica text-track-cyan text-xs mb-2 uppercase tracking-wide">PRODAJA I SERVIS</h4>
+            <Link href="/equipment" className="text-xs font-replica-light text-gray-300 hover:text-white transition-colors uppercase">DODATNA OPREMA</Link>
+            <Link href="/stores" className="text-xs font-replica-light text-gray-300 hover:text-white transition-colors uppercase">PRODAJNA MESTA I SERVISI</Link>
+            <Link href="/contact" className="text-xs font-replica-light text-gray-300 hover:text-white transition-colors uppercase">KONTAKTIRAJTE NAS</Link>
           </div>
 
           {/* Column 3 */}
-          <div className="flex flex-col gap-3">
-            <h4 className="font-replica text-track-cyan text-xs mb-2 uppercase tracking-wide">KORISNIČKI SERVIS</h4>
-            <Link href="#" className="text-xs font-replica-light text-gray-300 hover:text-white transition-colors uppercase">ZAPOČNI ČET</Link>
-            <Link href="#" className="text-xs font-replica-light text-gray-300 hover:text-white transition-colors uppercase">KONTAKTIRAJTE NAS</Link>
-            <Link href="#" className="text-xs font-replica-light text-gray-300 hover:text-white transition-colors uppercase">UPUTSTVA</Link>
-          </div>
-
-          {/* Column 4 */}
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-3 items-center md:items-start text-center md:text-left">
             <h4 className="font-replica text-track-cyan text-xs mb-2 uppercase tracking-wide">KOMPANIJE GRUPACIJE</h4>
             <Link href="#" className="text-xs font-replica-light text-gray-300 hover:text-white transition-colors uppercase">KEEWAY</Link>
             <Link href="#" className="text-xs font-replica-light text-gray-300 hover:text-white transition-colors uppercase">BENDA KEEWAY</Link>

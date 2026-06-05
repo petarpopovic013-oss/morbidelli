@@ -43,20 +43,20 @@ export default function TechSpecsAccordion({ categories }: TechSpecsAccordionPro
   return (
     <div className="w-full max-w-4xl mx-auto my-20 px-4">
       <div className="flex flex-col items-center mb-10">
-        <h2 className="text-3xl font-replica font-bold text-black uppercase tracking-tight mb-6">
+        <h2 className="text-2xl md:text-3xl font-replica font-bold text-black uppercase tracking-tight mb-6 text-center">
           TEHNIČKE SPECIFIKACIJE
         </h2>
         
-        <div className="flex gap-4 w-full justify-end">
+        <div className="flex gap-2 md:gap-4 w-full justify-center md:justify-end">
           <button 
             onClick={collapseAll}
-            className="flex items-center gap-2 border border-gray-300 rounded-full px-4 py-1.5 text-xs font-replica font-medium hover:bg-gray-50 transition-colors"
+            className="flex items-center gap-1 md:gap-2 border border-gray-300 rounded-full px-3 md:px-4 py-1.5 text-[10px] md:text-xs font-replica font-medium hover:bg-gray-50 transition-colors"
           >
             Skupi sve <ChevronUp className="w-3 h-3" />
           </button>
           <button 
             onClick={expandAll}
-            className="flex items-center gap-2 border border-gray-300 rounded-full px-4 py-1.5 text-xs font-replica font-medium hover:bg-gray-50 transition-colors"
+            className="flex items-center gap-1 md:gap-2 border border-gray-300 rounded-full px-3 md:px-4 py-1.5 text-[10px] md:text-xs font-replica font-medium hover:bg-gray-50 transition-colors"
           >
             Proširi sve <ChevronDown className="w-3 h-3" />
           </button>
