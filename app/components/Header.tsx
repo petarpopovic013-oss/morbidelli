@@ -72,7 +72,7 @@ export default function Header() {
           : "bg-black/10 py-2"
         }`}
     >
-      <div className="w-full px-4 xl:px-12 mx-auto max-w-[1920px] flex items-center h-full justify-between lg:justify-start">
+      <div className="w-full px-4 xl:px-12 mx-auto max-w-[1920px] flex items-center h-full justify-between">
 
         {/* Mobile Left Section: Hamburger Menu */}
         <div className="lg:hidden flex items-center shrink-0 w-1/4">
@@ -91,14 +91,14 @@ export default function Header() {
         </div>
 
         {/* Center Section on Mobile, Left Section on Desktop: Logo */}
-        <div className="flex-1 flex items-center justify-center lg:justify-start">
+        <div className="flex-1 flex items-center justify-center lg:flex-none lg:justify-start">
           <Link href="/" className="flex items-center relative z-10 shrink-0">
             <Image
               src="/logos/Full-Logo-Solid-Black-WB.webp"
               alt="Morbidelli Logo"
               width={200}
               height={44}
-              className={`transition-all duration-300 ${isSolid ? 'brightness-100' : 'brightness-0 invert'} w-[180px] lg:w-[239px]`}
+              className={`transition-all duration-300 ${isSolid ? 'brightness-100' : 'brightness-0 invert'} w-[160px] lg:w-[180px] xl:w-[239px]`}
               priority
             />
           </Link>
@@ -120,7 +120,7 @@ export default function Header() {
         </div>
 
         {/* Center Section: Desktop Navigation */}
-        <nav className="hidden lg:flex items-center justify-center gap-4 xl:gap-8 font-replica font-medium text-sm tracking-wider shrink-0 h-full">
+        <nav className="hidden lg:flex flex-1 items-center justify-end xl:justify-center gap-3 xl:gap-8 font-replica font-medium text-[11px] xl:text-sm tracking-wider h-full">
           {/* Primary: MODELS */}
           <div className="flex items-center h-full">
             <div 
@@ -158,7 +158,7 @@ export default function Header() {
         </nav>
 
         {/* Right Section: Empty space to perfectly center the navbar on desktop */}
-        <div className="hidden lg:block flex-1"></div>
+        {/* Removed flex-1 spacer to prevent overlap on smaller desktop screens */}
 
         {/* MegaMenu Component */}
         <MegaMenu isOpen={isMegaMenuOpen} onClose={() => setIsMegaMenuOpen(false)} offsetLeft={modeliOffset} />

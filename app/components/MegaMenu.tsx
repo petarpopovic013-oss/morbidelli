@@ -73,18 +73,18 @@ export default function MegaMenu({ isOpen, onClose, offsetLeft = 0 }: MegaMenuPr
   );
 
   return (
-    <div className="absolute top-[70px] lg:top-full left-0 w-full bg-white lg:shadow-xl border-t border-gray-100 flex flex-col lg:flex-row z-[60] h-[calc(100vh-70px)] lg:h-auto overflow-y-auto lg:overflow-visible">
+    <div className="absolute top-[70px] lg:top-full left-0 w-full bg-white lg:shadow-xl border-t border-gray-100 flex flex-col lg:flex-row z-[60] h-[calc(100vh-70px)] lg:h-[320px] overflow-y-auto lg:overflow-hidden">
       {/* 
         Mobilni prikaz (ispod lg): Kategorije levo, Modeli desno
         Desktop prikaz (lg i iznad): Kategorije -> Modeli -> Slika (sa offsetLeft)
       */}
       <div 
-        className="w-full flex flex-col lg:flex-row p-4 lg:p-0" 
+        className="w-full flex flex-col lg:flex-row p-4 lg:p-0 lg:h-full" 
         style={{ paddingLeft: typeof window !== 'undefined' && window.innerWidth >= 1024 && offsetLeft > 0 ? offsetLeft : undefined }}
       >
-        <div className="flex w-full lg:w-auto">
+        <div className="flex w-full lg:w-auto lg:h-full">
           {/* Categories Column */}
-          <div className="w-1/2 lg:w-auto lg:pr-8 border-r border-gray-200 pt-4 lg:pt-8 pb-4 lg:pb-20">
+          <div className="w-1/2 lg:w-auto lg:pr-8 border-r border-gray-200 pt-4 lg:pt-8 pb-4 lg:pb-8 lg:h-full overflow-y-auto">
             <ul className="flex flex-col gap-4 lg:gap-3">
               {CATEGORIES.map((cat) => (
                 <li
@@ -105,7 +105,7 @@ export default function MegaMenu({ isOpen, onClose, offsetLeft = 0 }: MegaMenuPr
           </div>
 
           {/* Motorcycles Column */}
-          <div className="w-1/2 lg:w-auto px-4 lg:px-8 lg:min-w-[200px] lg:border-r lg:border-gray-100 pt-4 lg:pt-8 pb-4 lg:pb-20">
+          <div className="w-1/2 lg:w-auto px-4 lg:px-8 lg:min-w-[200px] lg:border-r lg:border-gray-100 pt-4 lg:pt-8 pb-4 lg:pb-8 lg:h-full overflow-y-auto">
             <ul className="flex flex-col gap-4 lg:gap-3">
               {currentCategoryMotos.length > 0 ? (
                 currentCategoryMotos.map((moto) => (
@@ -130,15 +130,15 @@ export default function MegaMenu({ isOpen, onClose, offsetLeft = 0 }: MegaMenuPr
         </div>
 
         {/* Image Column & Button - Always visible below on mobile, to the right on desktop */}
-        <div className="flex-1 mt-8 lg:mt-0 lg:pl-16 flex flex-col lg:flex-row items-center justify-center lg:justify-start pt-4 lg:pt-8 pb-10 lg:pb-20 border-t lg:border-t-0 border-gray-100">
+        <div className="flex-1 mt-8 lg:mt-0 lg:pl-8 flex flex-col lg:flex-row items-center justify-center lg:justify-start pt-4 lg:pt-8 pb-10 lg:pb-8 border-t lg:border-t-0 border-gray-100 lg:h-full">
           {activeMotorcycle && activeMotorcycle.image_url ? (
-            <div className="flex flex-col items-center w-full">
-              <div className="relative w-full max-w-[400px] lg:max-w-[600px] aspect-[4/3] mb-6 lg:mb-0">
+            <div className="flex flex-col items-center justify-start w-full lg:h-full">
+              <div className="relative w-full max-w-[400px] lg:max-w-none aspect-[4/3] lg:aspect-auto lg:h-full lg:flex-1 mb-6 lg:mb-0">
                 <Image
                   src={activeMotorcycle.image_url}
                   alt={activeMotorcycle.name}
                   fill
-                  className="object-contain"
+                  className="object-contain lg:object-left"
                   sizes="(max-width: 768px) 100vw, 600px"
                 />
               </div>
@@ -153,7 +153,7 @@ export default function MegaMenu({ isOpen, onClose, offsetLeft = 0 }: MegaMenuPr
               </Link>
             </div>
           ) : (
-            <div className="text-gray-300 font-replica h-[200px] flex items-center">Uskoro slika modela...</div>
+            <div className="text-gray-300 font-replica h-[200px] lg:h-full flex items-center">Uskoro slika modela...</div>
           )}
         </div>
       </div>

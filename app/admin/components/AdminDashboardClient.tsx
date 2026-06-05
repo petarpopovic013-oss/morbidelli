@@ -90,7 +90,7 @@ export function AdminDashboardClient({ motorcycles }: { motorcycles: Motorcycle[
                 
                 <div className="absolute bottom-4 right-4">
                   <span className="inline-block bg-track-cyan text-black text-[11px] uppercase tracking-widest font-bold px-3 py-2 font-replica">
-                    {moto.price.toLocaleString('sr-RS')} €
+                    {moto.price ? `${moto.price.toLocaleString('sr-RS')} €` : 'Cena na upit'}
                   </span>
                 </div>
               </div>
