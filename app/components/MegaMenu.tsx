@@ -117,9 +117,23 @@ export default function MegaMenu({ isOpen, onClose, offsetLeft = 0 }: MegaMenuPr
                     onMouseEnter={() => setActiveMotorcycle(moto)}
                     onClick={() => setActiveMotorcycle(moto)}
                   >
-                    <Link href={`/motorcycles/${moto.slug}`} onClick={onClose} className="block w-full">
-                      {moto.name.replace('Morbidelli ', '').replace('MBP ', '')}
-                    </Link>
+                    <>
+                      {/* Desktop Link */}
+                      <Link href={`/motorcycles/${moto.slug}`} onClick={onClose} className="hidden lg:block w-full text-left">
+                        {moto.name.replace('Morbidelli ', '').replace('MBP ', '')}
+                      </Link>
+                      {/* Mobile Button (Just sets active, no navigation) */}
+                      <button 
+                        type="button"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setActiveMotorcycle(moto);
+                        }} 
+                        className="lg:hidden block w-full text-left outline-none"
+                      >
+                        {moto.name.replace('Morbidelli ', '').replace('MBP ', '')}
+                      </button>
+                    </>
                   </li>
                 ))
               ) : (
@@ -147,9 +161,9 @@ export default function MegaMenu({ isOpen, onClose, offsetLeft = 0 }: MegaMenuPr
               <Link 
                 href={`/motorcycles/${activeMotorcycle.slug}`}
                 onClick={onClose}
-                className="lg:hidden w-full bg-[#42D2F2] hover:bg-[#2CBEE0] transition-colors text-white font-replica font-bold text-center py-4 rounded-md uppercase tracking-wider mt-4"
+                className="lg:hidden w-full bg-track-cyan hover:bg-black transition-all duration-300 text-white font-replica font-bold text-center py-4 uppercase tracking-widest text-[13px] mt-6 shadow-[0_4px_14px_0_rgba(66,210,242,0.39)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.23)]"
               >
-                GO MODEL
+                Idi na model
               </Link>
             </div>
           ) : (

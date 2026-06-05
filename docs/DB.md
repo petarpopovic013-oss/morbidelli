@@ -38,6 +38,56 @@ Ovo je glavna i jedina tabela koju koristi Morbidelli sajt za katalog i prikaz m
 | `image_url` | `text` | Putanja/URL do glavne slike unutar `morbidelli_images` bucketa. |
 | `gallery` | `text[]` | Niz putanja/URL-ova za dodatne slike koje se prikazuju u galeriji. |
 | `specifications` | `jsonb` | JSON objekat za fleksibilan upis specifikacija (npr. `{ "engine": "1000cc", "weight": "265kg" }`). |
+| `model_year` | `integer` | Godina modela. |
+| `displacement` | `numeric` | Zapremina (ccm). |
+| `engine_type` | `text` | Tip motora (npr. V-2-cilindrični). |
+| `bore_stroke` | `text` | Prečnik x Hod klipa. |
+| `power` | `text` | Snaga (KS). |
+| `max_torque` | `text` | Maks. obrtni moment. |
+| `compression_ratio` | `text` | Stepen kompresije. |
+| `fuel_system` | `text` | Sistem ubrizgavanja goriva. |
+| `valve_train` | `text` | Razvodni mehanizam. |
+| `ignition_system` | `text` | Sistem paljenja. |
+| `starter` | `text` | Starter. |
+| `lubrication_system` | `text` | Sistem podmazivanja. |
+| `cooling_system` | `text` | Sistem hlađenja. |
+| `gear_shifting_type` | `text` | Tip menjača. |
+| `transmission_type` | `text` | Finalni prenos. |
+| `clutch_type` | `text` | Tip kvačila. |
+| `tcs` | `text` | TCS (Kontrola proklizavanja). |
+| `frame` | `text` | Ram / Okvir. |
+| `front_wheel` | `text` | Prednji točak. |
+| `front_suspension` | `text` | Prednje vešanje. |
+| `front_suspension_travel` | `numeric` | Hod prednjeg vešanja (mm). |
+| `front_tyre` | `text` | Prednja guma. |
+| `rear_wheel` | `text` | Zadnji točak. |
+| `rear_suspension` | `text` | Zadnje vešanje. |
+| `rear_suspension_travel` | `numeric` | Hod zadnjeg vešanja (mm). |
+| `rear_tyre` | `text` | Zadnja guma. |
+| `front_brake` | `text` | Prednja kočnica. |
+| `front_brake_diameter` | `numeric` | Prečnik prednjeg diska (mm). |
+| `rear_brake` | `text` | Zadnja kočnica. |
+| `rear_brake_diameter` | `numeric` | Prečnik zadnjeg diska (mm). |
+| `curb_weight` | `numeric` | Masa praznog vozila (kg). |
+| `seat_height` | `numeric` | Visina sedišta (mm). |
+| `wheelbase` | `numeric` | Međuosovinsko rastojanje (mm). |
+| `overall_length` | `numeric` | Ukupna dužina (mm). |
+| `overall_width` | `numeric` | Ukupna širina (mm). |
+| `overall_height` | `numeric` | Ukupna visina (mm). |
+| `ground_clearance` | `numeric` | Klirens (mm). |
+| `fuel_capacity` | `numeric` | Kapacitet rezervoara (L). |
+| `top_speed` | `numeric` | Maksimalna brzina (km/h). |
+| `max_loadage` | `numeric` | Maksimalna nosivost (kg). |
+| `battery` | `text` | Baterija. |
+| `throttle_configuration` | `text` | Konfiguracija gasa. |
+| `gear_indicator` | `text` | Indikator stepena prenosa. |
+| `usb_charging_port` | `text` | USB priključak za punjenje. |
+| `headlight` | `text` | Prednje svetlo. |
+| `taillight` | `text` | Zadnje svetlo. |
+| `turn_signal` | `text` | Migavci. |
+| `hazard_light` | `text` | Sva četiri migavca (hazard). |
+| `abs_system` | `text` | ABS sistem. |
+| `traction_control_system` | `text` | Sistem kontrole trakcije (TCS). |
 | `created_at` | `timestamptz`| Datum i vreme kreiranja rekorda, automatski se popunjava. |
 
 ---
@@ -56,6 +106,7 @@ Ista strukturna šema kao gore, rezervisana za upotrebu na odvojenom sajtu za Ke
 | `image_url` | `text` | Glavna slika u `keeway_images` bucket-u. |
 | `gallery` | `text[]` | Dodatne slike (galerija). |
 | `specifications` | `jsonb` | Fleksibilne specifikacije. |
+| `...` | | Ista specifikacijska polja (50+ komada) kao kod `morbidelli_motorcycles`. |
 | `created_at` | `timestamptz`| Datum i vreme unosa. |
 
 ---

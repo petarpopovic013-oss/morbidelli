@@ -144,10 +144,30 @@ export function MotorcycleForm({ initialData }: { initialData?: Motorcycle }) {
     }
   }
 
+  const handleMainImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (file) {
+      if (file.size > 5 * 1024 * 1024) {
+        setError('Glavna slika je prevelika (maksimalno 5MB).')
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+        e.target.value = ''
+        return
+      }
+      setMainImage(file)
+    } else {
+      setMainImage(null)
+    }
+  }
+
   const handleGalleryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       const filesArray = Array.from(e.target.files)
-      setNewGalleryFiles(prev => [...prev, ...filesArray])
+      const validFiles = filesArray.filter(f => f.size <= 5 * 1024 * 1024)
+      if (validFiles.length < filesArray.length) {
+        setError('Neke slike iz galerije su ignorisane jer su veće od dozvoljenih 5MB.')
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      }
+      setNewGalleryFiles(prev => [...prev, ...validFiles])
     }
     e.target.value = ''
   }
@@ -174,6 +194,7 @@ export function MotorcycleForm({ initialData }: { initialData?: Motorcycle }) {
           const uploadRes = await uploadImage(formData)
           if (uploadRes.error) {
             setError(uploadRes.error)
+            window.scrollTo({ top: 0, behavior: 'smooth' })
             return
           }
           finalImageUrl = uploadRes.publicUrl!
@@ -185,6 +206,7 @@ export function MotorcycleForm({ initialData }: { initialData?: Motorcycle }) {
 
         if (!finalImageUrl) {
           setError('Glavna slika je obavezna.')
+          window.scrollTo({ top: 0, behavior: 'smooth' })
           return
         }
 
@@ -195,6 +217,7 @@ export function MotorcycleForm({ initialData }: { initialData?: Motorcycle }) {
           const res = await uploadImage(formData)
           if (res.error) {
             setError(`Greška pri uploadu galerije: ${res.error}`)
+            window.scrollTo({ top: 0, behavior: 'smooth' })
             return
           }
           if (res.publicUrl) {
@@ -277,6 +300,7 @@ export function MotorcycleForm({ initialData }: { initialData?: Motorcycle }) {
 
         if (res.error) {
           setError(res.error)
+          window.scrollTo({ top: 0, behavior: 'smooth' })
         } else {
           for (const url of imagesToDelete) {
             await deleteImage(url)
@@ -284,7 +308,8 @@ export function MotorcycleForm({ initialData }: { initialData?: Motorcycle }) {
           router.push('/admin')
         }
       } catch (err: any) {
-        setError(err.message || 'Došlo je do greške')
+        setError(err.message || 'Došlo je do greške prilikom čuvanja. Ako je problem sa slikom, proverite veličinu (max 5MB).')
+        window.scrollTo({ top: 0, behavior: 'smooth' })
       }
     })
   }
@@ -803,7 +828,7 @@ export function MotorcycleForm({ initialData }: { initialData?: Motorcycle }) {
                       <span className="font-bold font-replica text-black">Klikni</span> ili prevuci sliku
                     </p>
                   </div>
-                  <input type="file" accept="image/*" onChange={(e) => setMainImage(e.target.files?.[0] || null)} className="hidden" />
+                  <input type="file" accept="image/*" onChange={handleMainImageChange} className="hidden" />
                 </label>
                 {mainImage && (
                   <p className="mt-3 text-xs text-black font-bold font-replica uppercase tracking-widest flex items-center gap-2">
