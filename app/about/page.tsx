@@ -62,7 +62,7 @@ export default function AboutUs() {
             </div>
             <div className="block lg:hidden md:hidden">
               <div
-                className="relative h-[480px] aos-init aos-animate"
+                className="relative h-[480px]" data-aos="fade-up"
                 data-aos-delay="100"
                 data-aos-offset="100"
               >
@@ -74,7 +74,7 @@ export default function AboutUs() {
                 />
               </div>
               <div
-                className="flex items-center justify-start order-2 px-4 pt-[30px] pb-[60px] overflow-hidden md:w-1/2 aos-init aos-animate"
+                className="flex items-center justify-start order-2 px-4 pt-[30px] pb-[60px] overflow-hidden md:w-1/2" data-aos="fade-up"
                 data-aos-delay="100"
                 style={{ background: "rgb(25, 25, 25)" }}
               >
@@ -115,7 +115,7 @@ export default function AboutUs() {
           <section className="border-t border-[#ECECEC] md:border-none items-stretch lg:flex">
             <div className="w-full overflow-hidden md:flex md:flex-row">
               <div
-                className="overflow-hidden md:order-1 xl:flex md:w-1/2 md:h-[800px] lg:h-[977px] sm:h-[600] 2xl:h-[1100px] aos-init aos-animate"
+                className="overflow-hidden md:order-1 xl:flex md:w-1/2 md:h-[800px] lg:h-[977px] sm:h-[600] 2xl:h-[1100px]" data-aos="fade-up"
                 data-aos-delay="100"
                 data-aos-offset="50"
               >
@@ -127,7 +127,7 @@ export default function AboutUs() {
                 />
               </div>
               <div
-                className="flex items-center justify-start overflow-hidden md:order-2 xl:py-8 md:w-1/2 aos-init aos-animate"
+                className="flex items-center justify-start overflow-hidden md:order-2 xl:py-8 md:w-1/2" data-aos="fade-up"
                 data-aos-delay="10"
               >
                 <div className="w-full lg:w-[525px] px-4 md:mx-8 xl:mx-20 md:my-0 my-10">
@@ -163,7 +163,7 @@ export default function AboutUs() {
           >
             <div className="w-full overflow-hidden md:flex md:flex-row">
               <div
-                className="overflow-hidden md:order-1 xl:flex md:w-1/2 md:h-[640px] 2xl:h-[750px] h-[325px] aos-init aos-animate"
+                className="overflow-hidden md:order-1 xl:flex md:w-1/2 md:h-[640px] 2xl:h-[750px] h-[325px]" data-aos="fade-up"
                 data-aos-delay="100"
               >
                 <img
@@ -174,7 +174,7 @@ export default function AboutUs() {
                 />
               </div>
               <div
-                className="flex items-center justify-start px-[15px] pt-6 pb-10 overflow-hidden md:py-0 md:order-2 md:w-1/2 aos-init aos-animate"
+                className="flex items-center justify-start px-[15px] pt-6 pb-10 overflow-hidden md:py-0 md:order-2 md:w-1/2" data-aos="fade-up"
                 data-aos-delay="100"
               >
                 <div className="w-full lg:w-[525px] md:mx-8 xl:mx-20">
@@ -193,7 +193,7 @@ export default function AboutUs() {
           <section className="border-t border-[#ECECEC] md:pt-0 md:border-none items-stretch lg:flex">
             <div className="w-full overflow-hidden md:flex md:flex-row">
               <div
-                className="overflow-hidden md:order-2 xl:flex md:w-1/2 xl:h-[640px] h-[325px] mt-[15px] mx-[15px] md:m-0 aos-init aos-animate"
+                className="overflow-hidden md:order-2 xl:flex md:w-1/2 xl:h-[640px] h-[325px] mt-[15px] mx-[15px] md:m-0" data-aos="fade-up"
                 data-aos-delay="100"
                 style={{ background: "rgb(239, 239, 239)" }}
               >
@@ -204,7 +204,7 @@ export default function AboutUs() {
                 />
               </div>
               <div
-                className="flex items-center justify-end pt-6 pb-10 px-[15px] overflow-hidden md:py-0 md:order-1 md:w-1/2 md:px-0 aos-init aos-animate"
+                className="flex items-center justify-end pt-6 pb-10 px-[15px] overflow-hidden md:py-0 md:order-1 md:w-1/2 md:px-0" data-aos="fade-up"
                 data-aos-delay="100"
               >
                 <div className="w-full lg:w-[525px] lg:pl-4 lg:pr-6 md:mx-4 lg:mx-8 xl:mx-20">
@@ -226,7 +226,7 @@ export default function AboutUs() {
           >
             <div className="w-full overflow-hidden md:flex md:flex-row">
               <div
-                className="overflow-hidden md:order-1 xl:flex md:w-1/2 md:h-[640px] 2xl:h-[750px] h-[325px] aos-init aos-animate"
+                className="overflow-hidden md:order-1 xl:flex md:w-1/2 md:h-[640px] 2xl:h-[750px] h-[325px]" data-aos="fade-up"
                 data-aos-delay="100"
               >
                 <img
@@ -236,7 +236,7 @@ export default function AboutUs() {
                 />
               </div>
               <div
-                className="flex items-center justify-start px-[15px] pt-6 pb-10 overflow-hidden md:py-0 md:order-2 md:w-1/2 aos-init aos-animate"
+                className="flex items-center justify-start px-[15px] pt-6 pb-10 overflow-hidden md:py-0 md:order-2 md:w-1/2" data-aos="fade-up"
                 data-aos-delay="100"
               >
                 <div className="w-full lg:w-[525px] lg:pl-4 lg:pr-6 md:mx-4 lg:mx-8 xl:mx-20">
@@ -258,7 +258,7 @@ export default function AboutUs() {
           >
             <div className="w-full overflow-hidden md:flex md:flex-row">
               <div
-                className="overflow-hidden md:order-2 xl:flex md:w-1/2 h-[325px] md:h-[640px] 2xl:h-[750px] aos-init aos-animate"
+                className="overflow-hidden md:order-2 xl:flex md:w-1/2 h-[325px] md:h-[640px] 2xl:h-[750px]" data-aos="fade-up"
                 data-aos-delay="100"
               >
                 <img
@@ -268,7 +268,7 @@ export default function AboutUs() {
                 />
               </div>
               <div
-                className="flex items-center justify-end px-[15px] pt-6 pb-10 overflow-hidden md:order-1 md:py-0 md:w-1/2 md:px-4 aos-init aos-animate"
+                className="flex items-center justify-end px-[15px] pt-6 pb-10 overflow-hidden md:order-1 md:py-0 md:w-1/2 md:px-4" data-aos="fade-up"
                 data-aos-delay="100"
               >
                 <div className="w-full lg:w-[525px] lg:pl-4 lg:pr-6 md:mx-4 lg:mx-8 xl:mx-20">
@@ -307,7 +307,7 @@ export default function AboutUs() {
           >
             <div className="w-full pt-[15px] px-[15px] overflow-hidden md:flex md:flex-row md:m-0">
               <div
-                className="overflow-hidden md:order-2 xl:flex md:w-1/2 md:h-[640px] 2xl:h-[750px] h-[325px] flex items-center justify-center aos-init aos-animate"
+                className="overflow-hidden md:order-2 xl:flex md:w-1/2 md:h-[640px] 2xl:h-[750px] h-[325px] flex items-center justify-center" data-aos="fade-up"
                 data-aos-delay="100"
                 style={{ backgroundColor: "rgb(239, 239, 239)" }}
               >
@@ -318,7 +318,7 @@ export default function AboutUs() {
                 />
               </div>
               <div
-                className="flex items-center justify-end pt-6 pb-10 overflow-hidden md:order-1 md:py-0 md:w-1/2 md:px-4 aos-init aos-animate"
+                className="flex items-center justify-end pt-6 pb-10 overflow-hidden md:order-1 md:py-0 md:w-1/2 md:px-4" data-aos="fade-up"
                 data-aos-delay="100"
               >
                 <div className="w-full lg:w-[525px] lg:pl-4 lg:pr-6 md:mx-4 lg:mx-8 xl:mx-20">
@@ -340,7 +340,7 @@ export default function AboutUs() {
           >
             <div className="w-full overflow-hidden md:flex md:flex-row">
               <div
-                className="overflow-hidden md:order-1 xl:flex md:w-1/2 h-[325px] md:h-[640px] 2xl:h-[750px] aos-init aos-animate"
+                className="overflow-hidden md:order-1 xl:flex md:w-1/2 h-[325px] md:h-[640px] 2xl:h-[750px]" data-aos="fade-up"
                 data-aos-delay="100"
               >
                 <img
@@ -350,7 +350,7 @@ export default function AboutUs() {
                 />
               </div>
               <div
-                className="flex items-center justify-start overflow-hidden px-[15px] pt-6 pb-10 md:py-0 md:order-2 md:w-1/2 aos-init aos-animate"
+                className="flex items-center justify-start overflow-hidden px-[15px] pt-6 pb-10 md:py-0 md:order-2 md:w-1/2" data-aos="fade-up"
                 data-aos-delay="100"
               >
                 <div className="w-full lg:w-[525px] lg:pl-4 lg:pr-6 md:mx-4 lg:mx-8 xl:mx-20">
@@ -369,7 +369,7 @@ export default function AboutUs() {
           <section className="border-t border-[#ECECEC] md:pt-0 md:border-none items-stretch lg:flex">
             <div className="w-full overflow-hidden md:flex md:flex-row">
               <div
-                className="overflow-hidden md:order-2 mt-[15px] mx-[15px] xl:flex md:w-1/2 h-[325px] md:h-[640px] 2xl:h-[750px] flex items-center justify-center aos-init"
+                className="overflow-hidden md:order-2 mt-[15px] mx-[15px] xl:flex md:w-1/2 h-[325px] md:h-[640px] 2xl:h-[750px] flex items-center justify-center" data-aos="fade-up"
                 data-aos-delay="100"
                 style={{ backgroundColor: "rgb(239, 239, 239)" }}
               >
@@ -380,7 +380,7 @@ export default function AboutUs() {
                 />
               </div>
               <div
-                className="flex items-center justify-end px-[15px] pt-6 pb-10 overflow-hidden md:order-1 md:py-0 md:w-1/2 md:px-4 aos-init"
+                className="flex items-center justify-end px-[15px] pt-6 pb-10 overflow-hidden md:order-1 md:py-0 md:w-1/2 md:px-4" data-aos="fade-up"
                 data-aos-delay="100"
               >
                 <div className="w-full lg:w-[525px] lg:pl-4 lg:pr-6 md:mx-4 lg:mx-8 xl:mx-20">
@@ -398,7 +398,7 @@ export default function AboutUs() {
           >
             <div className="w-full overflow-hidden md:flex md:flex-row">
               <div
-                className="overflow-hidden md:order-1 xl:flex md:w-1/2 h-[325px] md:h-[640px] 2xl:h-[750px] aos-init"
+                className="overflow-hidden md:order-1 xl:flex md:w-1/2 h-[325px] md:h-[640px] 2xl:h-[750px]" data-aos="fade-up"
                 data-aos-delay="100"
               >
                 <img
@@ -408,7 +408,7 @@ export default function AboutUs() {
                 />
               </div>
               <div
-                className="flex items-center justify-start overflow-hidden px-[15px] pt-6 pb-10 md:py-0 md:order-2 md:w-1/2 aos-init"
+                className="flex items-center justify-start overflow-hidden px-[15px] pt-6 pb-10 md:py-0 md:order-2 md:w-1/2" data-aos="fade-up"
                 data-aos-delay="100"
               >
                 <div className="w-full lg:w-[525px] lg:pl-4 lg:pr-6 md:mx-4 lg:mx-8 xl:mx-20">
@@ -437,7 +437,7 @@ export default function AboutUs() {
           <section className="items-stretch lg:flex" id="about_1977">
             <div className="w-full overflow-hidden md:flex md:flex-row">
               <div
-                className="overflow-hidden md:order-1 xl:flex md:w-1/2 h-[325px] md:h-[640px] 2xl:h-[750px] aos-init"
+                className="overflow-hidden md:order-1 xl:flex md:w-1/2 h-[325px] md:h-[640px] 2xl:h-[750px]" data-aos="fade-up"
                 data-aos-delay="100"
               >
                 <img
@@ -447,7 +447,7 @@ export default function AboutUs() {
                 />
               </div>
               <div
-                className="flex items-center justify-start px-[15px] overflow-hidden pt-6 pb-[30px] md:py-0 md:order-2 md:w-1/2 aos-init"
+                className="flex items-center justify-start px-[15px] overflow-hidden pt-6 pb-[30px] md:py-0 md:order-2 md:w-1/2" data-aos="fade-up"
                 data-aos-delay="100"
               >
                 <div className="w-full lg:w-[525px] lg:pl-4 lg:pr-6 md:mx-4 lg:mx-8 xl:mx-20">
@@ -479,7 +479,7 @@ export default function AboutUs() {
           >
             <div className="w-full overflow-hidden md:flex md:flex-row">
               <div
-                className="overflow-hidden md:order-2 xl:flex md:w-1/2 h-[325px] md:h-[640px] 2xl:h-[750px] aos-init"
+                className="overflow-hidden md:order-2 xl:flex md:w-1/2 h-[325px] md:h-[640px] 2xl:h-[750px]" data-aos="fade-up"
                 data-aos-delay="100"
               >
                 <img
@@ -489,7 +489,7 @@ export default function AboutUs() {
                 />
               </div>
               <div
-                className="flex items-center justify-end px-[15px] overflow-hidden pt-6 pb-10 md:order-1 md:py-0 md:w-1/2 aos-init"
+                className="flex items-center justify-end px-[15px] overflow-hidden pt-6 pb-10 md:order-1 md:py-0 md:w-1/2" data-aos="fade-up"
                 data-aos-delay="100"
               >
                 <div className="w-full lg:w-[525px] lg:pl-4 lg:pr-6 md:mx-4 lg:mx-8 xl:mx-20">
@@ -511,7 +511,7 @@ export default function AboutUs() {
           >
             <div className="w-full overflow-hidden md:flex md:flex-row">
               <div
-                className="overflow-hidden md:order-1 xl:flex md:w-1/2 h-[325px] md:h-[640px] 2xl:h-[750px] aos-init"
+                className="overflow-hidden md:order-1 xl:flex md:w-1/2 h-[325px] md:h-[640px] 2xl:h-[750px]" data-aos="fade-up"
                 data-aos-delay="100"
               >
                 <img
@@ -521,7 +521,7 @@ export default function AboutUs() {
                 />
               </div>
               <div
-                className="flex items-center justify-start px-[15px] overflow-hidden pt-6 pb-10 md:py-0 md:order-2 md:w-1/2 aos-init"
+                className="flex items-center justify-start px-[15px] overflow-hidden pt-6 pb-10 md:py-0 md:order-2 md:w-1/2" data-aos="fade-up"
                 data-aos-delay="100"
               >
                 <div className="w-full lg:w-[525px] lg:pl-4 lg:pr-6 md:mx-4 lg:mx-8 xl:mx-20">
@@ -543,7 +543,7 @@ export default function AboutUs() {
           >
             <div className="w-full overflow-hidden md:flex md:flex-row">
               <div
-                className="overflow-hidden md:order-2 xl:flex h-[325px] md:h-[640px] 2xl:h-[750px] md:w-1/2 aos-init"
+                className="overflow-hidden md:order-2 xl:flex h-[325px] md:h-[640px] 2xl:h-[750px] md:w-1/2" data-aos="fade-up"
                 data-aos-delay="100"
               >
                 <img
@@ -553,7 +553,7 @@ export default function AboutUs() {
                 />
               </div>
               <div
-                className="flex items-center justify-end px-[15px] pt-6 pb-10 overflow-hidden bg-black md:order-1 md:py-0 md:w-1/2 aos-init"
+                className="flex items-center justify-end px-[15px] pt-6 pb-10 overflow-hidden bg-black md:order-1 md:py-0 md:w-1/2" data-aos="fade-up"
                 data-aos-delay="100"
               >
                 <div className="w-full lg:w-[525px] lg:pl-4 lg:pr-6 md:mx-4 lg:mx-8 xl:mx-20">
@@ -575,7 +575,7 @@ export default function AboutUs() {
           >
             <div className="w-full overflow-hidden md:flex md:flex-row">
               <div
-                className="overflow-hidden md:order-1 xl:flex md:w-1/2 h-[325px] md:h-[640px] 2xl:h-[750px] aos-init"
+                className="overflow-hidden md:order-1 xl:flex md:w-1/2 h-[325px] md:h-[640px] 2xl:h-[750px]" data-aos="fade-up"
                 data-aos-delay="100"
               >
                 <img
@@ -586,7 +586,7 @@ export default function AboutUs() {
                 />
               </div>
               <div
-                className="flex items-center justify-start px-[15px] overflow-hidden pt-6 pb-10 md:py-0 md:order-2 md:w-1/2 aos-init"
+                className="flex items-center justify-start px-[15px] overflow-hidden pt-6 pb-10 md:py-0 md:order-2 md:w-1/2" data-aos="fade-up"
                 data-aos-delay="100"
               >
                 <div className="w-full lg:w-[525px] lg:pl-4 lg:pr-6 md:mx-4 lg:mx-8 xl:mx-20">
@@ -609,22 +609,9 @@ export default function AboutUs() {
               className="absolute object-cover w-full h-full bg-secondary"
               alt=""
             />
-            <div className="container mx-auto relative z-20 flex justify-center md:block">
-              <div className="w-[345px] md:w-[587px] pt-6 pb-10 md:pt-[90px] flex flex-col items-center md:items-start md:justify-start">
-                <svg
-                  width="113"
-                  height="113"
-                  viewBox="0 0 113 113"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="text-white w-[112px] h-[112px]"
-                >
-                  <path
-                    d="M103.775 26.8242C98.33 18.1691 90.2967 10.674 79.7654 5.40931L79.1406 5.05315V107.039C86.3701 104.184 89.672 100.704 89.672 100.704V62.6931C89.672 62.6931 109.755 62.6036 111.897 62.6036C112.7 48.8629 110.022 36.7278 103.775 26.8242ZM89.5834 52.0752V27.5375C89.5834 27.5375 89.672 27.5375 90.8329 28.5194C97.2596 34.2298 100.651 42.9744 100.651 51.9857C94.2243 52.0752 90.5653 52.0752 89.5834 52.0752Z"
-                    fill="currentColor"
-                  />
-                </svg>
-                <p className="text-[15px] md:text-base lg:text-lg lg:leading-[28px] md:leading-[26px] leading-[24px] xl:leading-[30px] mt-4 xl:text-[20px] text-white font-replica-light font-normal text-center md:text-start">
+            <div className="container mx-auto relative z-20 flex items-center justify-center md:justify-start h-full">
+              <div className="w-[345px] md:w-[587px] flex flex-col items-center md:items-start md:justify-center">
+                <p className="text-[22px] md:text-[32px] lg:text-[40px] leading-[1.3] md:leading-[1.2] text-white font-replica-light font-normal text-center md:text-start filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] max-w-xl">
                   Godine 2021. osnovan je MBP u Bolonji, Italija.
                 </p>
               </div>
@@ -646,7 +633,7 @@ export default function AboutUs() {
           >
             <div className="w-full overflow-hidden md:flex md:flex-row">
               <div
-                className="overflow-hidden md:order-1 xl:flex md:w-1/2 h-[325px] md:h-[640px] 2xl:h-[750px] aos-init"
+                className="overflow-hidden md:order-1 xl:flex md:w-1/2 h-[325px] md:h-[640px] 2xl:h-[750px]" data-aos="fade-up"
                 data-aos-delay="100"
               >
                 <img
@@ -656,7 +643,7 @@ export default function AboutUs() {
                 />
               </div>
               <div
-                className="flex items-center justify-start px-[15px] overflow-hidden bg-black pt-6 pb-10 md:py-0 md:order-2 md:w-1/2 aos-init"
+                className="flex items-center justify-start px-[15px] overflow-hidden bg-black pt-6 pb-10 md:py-0 md:order-2 md:w-1/2" data-aos="fade-up"
                 data-aos-delay="100"
               >
                 <div className="w-full lg:w-[525px] lg:pl-4 lg:pr-6 md:mx-4 lg:mx-8 xl:mx-20">
@@ -678,7 +665,7 @@ export default function AboutUs() {
           >
             <div className="w-full overflow-hidden md:flex md:flex-row">
               <div
-                className="overflow-hidden md:order-2 xl:flex md:w-1/2 h-[325px] md:h-[640px] 2xl:h-[750px] aos-init"
+                className="overflow-hidden md:order-2 xl:flex md:w-1/2 h-[325px] md:h-[640px] 2xl:h-[750px]" data-aos="fade-up"
                 data-aos-delay="100"
               >
                 <img
@@ -688,7 +675,7 @@ export default function AboutUs() {
                 />
               </div>
               <div
-                className="flex items-center justify-end px-[15px] overflow-hidden bg-black pt-6 pb-10 md:order-1 md:py-0 md:w-1/2 aos-init"
+                className="flex items-center justify-end px-[15px] overflow-hidden bg-black pt-6 pb-10 md:order-1 md:py-0 md:w-1/2" data-aos="fade-up"
                 data-aos-delay="100"
               >
                 <div className="w-full lg:w-[525px] lg:pl-4 lg:pr-6 md:mx-4 lg:mx-8 xl:mx-20">
@@ -710,7 +697,7 @@ export default function AboutUs() {
           >
             <div className="w-full overflow-hidden md:flex md:flex-row">
               <div
-                className="overflow-hidden px-[15px] pt-[15px] md:p-0 md:order-1 xl:flex md:w-1/2 h-[325px] md:h-[640px] 2xl:h-[750px] aos-init"
+                className="overflow-hidden px-[15px] pt-[15px] md:p-0 md:order-1 xl:flex md:w-1/2 h-[325px] md:h-[640px] 2xl:h-[750px]" data-aos="fade-up"
                 data-aos-delay="100"
               >
                 <img
@@ -721,7 +708,7 @@ export default function AboutUs() {
                 />
               </div>
               <div
-                className="flex items-center justify-start px-[15px] overflow-hidden bg-black pt-6 pb-10 md:py-0 md:order-2 md:w-1/2 aos-init"
+                className="flex items-center justify-start px-[15px] overflow-hidden bg-black pt-6 pb-10 md:py-0 md:order-2 md:w-1/2" data-aos="fade-up"
                 data-aos-delay="100"
               >
                 <div className="w-full lg:w-[525px] lg:pl-4 lg:pr-6 md:mx-4 lg:mx-8 xl:mx-20">
@@ -740,7 +727,7 @@ export default function AboutUs() {
           <section className="border-t border-[#ECECEC] border-opacity-20 md:pt-0 md:border-none items-stretch bg-black lg:flex">
             <div className="w-full overflow-hidden md:flex md:flex-row">
               <div
-                className="overflow-hidden md:order-2 xl:flex md:w-1/2 h-[325px] md:h-[640px] 2xl:h-[750px] aos-init"
+                className="overflow-hidden md:order-2 xl:flex md:w-1/2 h-[325px] md:h-[640px] 2xl:h-[750px]" data-aos="fade-up"
                 data-aos-delay="100"
               >
                 <img
@@ -750,7 +737,7 @@ export default function AboutUs() {
                 />
               </div>
               <div
-                className="flex items-center justify-end px-[15px] overflow-hidden bg-black pt-6 pb-10 md:order-1 md:py-0 md:w-1/2 aos-init"
+                className="flex items-center justify-end px-[15px] overflow-hidden bg-black pt-6 pb-10 md:order-1 md:py-0 md:w-1/2" data-aos="fade-up"
                 data-aos-delay="100"
               >
                 <div className="w-full lg:w-[525px] lg:pl-4 lg:pr-6 md:mx-4 lg:mx-8 xl:mx-20">
