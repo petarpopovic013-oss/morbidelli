@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Inter } from "next/font/google";
 import "./globals.css";
+
+const inter = Inter({
+  subsets: ["latin-ext"],
+  variable: "--font-inter-local",
+  weight: ["100", "200", "300", "400", "500", "700"],
+});
 
 const replica = localFont({
   src: [
@@ -20,12 +27,12 @@ const replica = localFont({
       style: "normal",
     }
   ],
-  variable: "--font-replica",
+  variable: "--font-replica-local",
 });
 
 const replicaLight = localFont({
   src: "./fonts/Replica-Light.ttf",
-  variable: "--font-replica-light",
+  variable: "--font-replica-light-local",
   weight: "300",
 });
 
@@ -41,8 +48,8 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
-      className={`${replica.variable} ${replicaLight.variable} h-full antialiased`}
+      lang="sr"
+      className={`${replica.variable} ${replicaLight.variable} ${inter.variable} h-full antialiased`}
     >
       <head>
         <link

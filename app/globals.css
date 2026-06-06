@@ -2,8 +2,9 @@
 
 @theme {
   /* Fonts mapped to CSS variables set in Layout */
-  --font-replica: var(--font-replica), sans-serif;
-  --font-replica-light: var(--font-replica-light), sans-serif;
+  --font-replica: var(--font-replica-local), var(--font-inter-local), sans-serif;
+  --font-replica-light: var(--font-replica-light-local), var(--font-inter-local), sans-serif;
+  --font-inter: var(--font-inter-local);
 
   /* Brand Colors from User Request */
   --color-background: #ffffff;
@@ -56,7 +57,7 @@
 body {
   background-color: #ffffff;
   color: #000000;
-  font-family: var(--font-replica), sans-serif;
+  font-family: var(--font-replica-local), var(--font-inter-local), sans-serif;
   overflow-x: hidden;
 }
 

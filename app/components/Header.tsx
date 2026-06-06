@@ -63,7 +63,7 @@ export default function Header() {
     };
   }, [isMobileMenuOpen]);
 
-  const isSolid = isScrolled || pathname !== "/" || isMobileMenuOpen;
+  const isSolid = isScrolled || (pathname !== "/" && pathname !== "/about") || isMobileMenuOpen;
 
   return (
     <header
