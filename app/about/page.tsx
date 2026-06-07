@@ -88,24 +88,7 @@ export default function AboutUs() {
                     />
                   </div>
                   <h1 className="text-[28px] font-replica-pro w-[345px] sm:w-full tracking-[-2%] leading-[36px] font-normal text-start text-white mt-6">
-                    <span
-                      style={{
-                        fontFamily: "var(--font-inter-local)",
-                        fontWeight: "300",
-                      }}
-                    >
-                      Đ
-                    </span>
-                    ankarlo Morbideli: Legendarni konstruktor trka
-                    <span
-                      style={{
-                        fontFamily: "var(--font-inter-local)",
-                        fontWeight: "300",
-                      }}
-                    >
-                      č
-                    </span>
-                    kih motocikala
+                    Giancarlo Morbidelli: Legendarni inženjer trkačkih motocikala
                   </h1>
                 </div>
               </div>
