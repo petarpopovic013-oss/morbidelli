@@ -14,6 +14,7 @@ function generateSlug(text: string) {
     .toString()
     .toLowerCase()
     .trim()
+    .replace(/^morbidelli\s+/i, '')
     .replace(/\s+/g, '-')
     .replace(/[^\w\-]+/g, '')
     .replace(/\-\-+/g, '-')

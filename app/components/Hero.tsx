@@ -27,7 +27,7 @@ export default function Hero() {
         <p className="text-[28px] md:text-[31px] font-replica-light mb-6 leading-none">
           Potpuno novi Morbidelli C652V
         </p>
-        <a href="#" className="font-replica text-sm mb-4 hover:text-track-cyan transition-colors leading-none">
+        <a href="/motocikli/c652v" className="font-replica text-sm mb-4 hover:text-track-cyan transition-colors leading-none">
           Saznaj više &gt;&gt;
         </a>
         <button className="bg-white/20 hover:bg-white/40 transition-colors w-14 h-10 rounded-lg flex items-center justify-center backdrop-blur-sm">

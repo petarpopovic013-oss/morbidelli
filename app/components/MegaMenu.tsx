@@ -120,7 +120,7 @@ export default function MegaMenu({ isOpen, onClose, offsetLeft = 0 }: MegaMenuPr
                   >
                     <>
                       {/* Desktop Link */}
-                      <Link href={`/motorcycles/${moto.slug}`} onClick={onClose} className="hidden lg:block w-full text-left">
+                      <Link href={`/motocikli/${moto.slug}`} onClick={onClose} className="hidden lg:block w-full text-left">
                         {moto.name.replace('Morbidelli ', '').replace('MBP ', '')}
                       </Link>
                       {/* Mobile Button (Just sets active, no navigation) */}
@@ -160,7 +160,7 @@ export default function MegaMenu({ isOpen, onClose, offsetLeft = 0 }: MegaMenuPr
               
               {/* GO MODEL button - shown only on mobile */}
               <Link 
-                href={`/motorcycles/${activeMotorcycle.slug}`}
+                href={`/motocikli/${activeMotorcycle.slug}`}
                 onClick={onClose}
                 className="lg:hidden w-full bg-track-cyan hover:bg-black transition-all duration-300 text-white font-replica font-bold text-center py-4 uppercase tracking-widest text-[13px] mt-6 shadow-[0_4px_14px_0_rgba(66,210,242,0.39)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.23)]"
               >
