@@ -61,7 +61,7 @@ export default function Footer() {
             <h4 className="font-replica text-track-cyan text-xs mb-2 uppercase tracking-wide">BRZI LINKOVI</h4>
             <Link href="/" className="text-xs font-replica-light text-gray-300 hover:text-white transition-colors uppercase">NASLOVNA</Link>
             <Link href="/about" className="text-xs font-replica-light text-gray-300 hover:text-white transition-colors uppercase">O NAMA</Link>
-            <Link href="/news" className="text-xs font-replica-light text-gray-300 hover:text-white transition-colors uppercase">NOVOSTI</Link>
+            <Link href="/novosti" className="text-xs font-replica-light text-gray-300 hover:text-white transition-colors uppercase">NOVOSTI</Link>
           </div>
 
           {/* Column 2 */}

@@ -143,7 +143,7 @@ export default function Header() {
           <Link href="/about" className={`hover:text-track-cyan transition-colors ${isSolid ? "text-black" : "text-white"}`}>
             O NAMA
           </Link>
-          <Link href="/news" className={`hover:text-track-cyan transition-colors ${isSolid ? "text-black" : "text-white"}`}>
+          <Link href="/novosti" className={`hover:text-track-cyan transition-colors ${isSolid ? "text-black" : "text-white"}`}>
             NOVOSTI
           </Link>
           <Link href="/equipment" className={`hover:text-track-cyan transition-colors ${isSolid ? "text-black" : "text-white"}`}>
@@ -213,8 +213,8 @@ export default function Header() {
           </Link>
 
           <Link 
-            href="/news" 
-            className={`flex items-center justify-between p-6 py-5 border-b ${pathname === '/news' ? 'text-[#42D2F2] border-[#42D2F2]' : 'text-black border-gray-100'}`}
+            href="/novosti" 
+            className={`flex items-center justify-between p-6 py-5 border-b ${pathname === '/novosti' ? 'text-[#42D2F2] border-[#42D2F2]' : 'text-black border-gray-100'}`}
             onClick={() => setIsMobileMenuOpen(false)}
           >
             <span className="font-replica text-base">Novosti</span>

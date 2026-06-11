@@ -1,9 +1,33 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Serbian Fix';
+  src: url('/fonts/Inter-Light.otf') format('opentype');
+  unicode-range: U+010C, U+010D, U+0106, U+0107, U+0160, U+0161, U+0110, U+0111, U+017D, U+017E;
+  font-weight: 300;
+  size-adjust: 90%;
+}
+
+@font-face {
+  font-family: 'Serbian Fix';
+  src: url('/fonts/Inter-Regular.otf') format('opentype');
+  unicode-range: U+010C, U+010D, U+0106, U+0107, U+0160, U+0161, U+0110, U+0111, U+017D, U+017E;
+  font-weight: 400;
+  size-adjust: 90%;
+}
+
+@font-face {
+  font-family: 'Serbian Fix';
+  src: url('/fonts/Inter-Bold.otf') format('opentype');
+  unicode-range: U+010C, U+010D, U+0106, U+0107, U+0160, U+0161, U+0110, U+0111, U+017D, U+017E;
+  font-weight: 700;
+  size-adjust: 90%;
+}
+
 @theme {
   /* Fonts mapped to CSS variables set in Layout */
-  --font-replica: var(--font-replica-local), var(--font-inter-local), sans-serif;
-  --font-replica-light: var(--font-replica-light-local), var(--font-inter-local), sans-serif;
+  --font-replica: 'Serbian Fix', var(--font-replica-local), var(--font-inter-local), sans-serif;
+  --font-replica-light: 'Serbian Fix', var(--font-replica-light-local), var(--font-inter-local), sans-serif;
   --font-inter: var(--font-inter-local);
 
   /* Brand Colors from User Request */
@@ -57,7 +81,7 @@
 body {
   background-color: #ffffff;
   color: #000000;
-  font-family: var(--font-replica-local), var(--font-inter-local), sans-serif;
+  font-family: 'Serbian Fix', var(--font-replica-local), var(--font-inter-local), sans-serif;
   overflow-x: hidden;
 }
 

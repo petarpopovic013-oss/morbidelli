@@ -24,6 +24,24 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           
           <div className="flex items-center gap-6">
             <Link
+              href="/admin"
+              className="flex items-center gap-2 font-replica-light text-[11px] font-bold uppercase tracking-widest text-black hover:text-track-cyan transition-all duration-300"
+            >
+              <span>Motori</span>
+            </Link>
+            
+            <div className="w-[2px] h-4 bg-gray-200" />
+
+            <Link
+              href="/admin/novosti"
+              className="flex items-center gap-2 font-replica-light text-[11px] font-bold uppercase tracking-widest text-black hover:text-track-cyan transition-all duration-300"
+            >
+              <span>Vesti</span>
+            </Link>
+
+            <div className="w-[2px] h-4 bg-gray-200" />
+
+            <Link
               href="/"
               className="flex items-center gap-2 font-replica-light text-[11px] font-bold uppercase tracking-widest text-black hover:text-track-cyan transition-all duration-300"
             >
