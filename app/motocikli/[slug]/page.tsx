@@ -21,12 +21,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   if (!motorcycle) {
     return {
-      title: 'Motorcycle Not Found - Morbidelli',
+      title: 'Motorcycle Not Found - Morbidelli Srbija',
     };
   }
 
   return {
-    title: `${motorcycle.name} - Morbidelli`,
+    title: `${motorcycle.name} - Morbidelli Srbija`,
     description: motorcycle.short_description || `Otkrijte detalje za model ${motorcycle.name}.`,
   };
 }

@@ -37,7 +37,7 @@ const replicaLight = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Morbidelli",
+  title: "Morbidelli Srbija",
   description: "Dizajnirano za hrabre.",
 };
 
