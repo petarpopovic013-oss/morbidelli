@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Globe, ChevronDown } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -36,20 +35,18 @@ export default function Footer() {
           
           <div className="flex items-center gap-4">
             <span className="text-track-cyan font-replica-light text-xs mr-4">Pronađite nas na društvenim mrežama:</span>
-            <a href="#" className="w-10 h-10 rounded-md bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 transition-colors text-white">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-            </a>
-            <a href="#" className="w-10 h-10 rounded-md bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 transition-colors text-white">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-            </a>
-            <a href="#" className="w-10 h-10 rounded-md bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 transition-colors text-white">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-            </a>
-            <a href="#" className="w-10 h-10 rounded-md bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 transition-colors text-white">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
-            </a>
-            <a href="#" className="w-10 h-10 rounded-md bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 transition-colors text-white">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+            <a
+              href="https://www.instagram.com/ddmcompany.ns/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 rounded-md bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 transition-colors text-white"
+              aria-label="Instagram @ddmcompany.ns"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
             </a>
           </div>
         </div>
@@ -74,11 +71,11 @@ export default function Footer() {
 
           {/* Column 3 */}
           <div className="flex flex-col gap-3 items-center md:items-start text-center md:text-left">
-            <h4 className="font-replica text-track-cyan text-xs mb-2 uppercase tracking-wide">KOMPANIJE GRUPACIJE</h4>
-            <Link href="#" className="text-xs font-replica-light text-gray-300 hover:text-white transition-colors uppercase">KEEWAY</Link>
-            <Link href="#" className="text-xs font-replica-light text-gray-300 hover:text-white transition-colors uppercase">BENDA KEEWAY</Link>
-            <Link href="#" className="text-xs font-replica-light text-gray-300 hover:text-white transition-colors uppercase">BENELLI</Link>
-            <Link href="#" className="text-xs font-replica-light text-gray-300 hover:text-white transition-colors uppercase">BENELLI BIKE</Link>
+            <h4 className="font-replica text-track-cyan text-xs mb-2 uppercase tracking-wide">DDM GRUPA</h4>
+            <a href="https://ddmcompany.rs" target="_blank" rel="noopener noreferrer" className="text-xs font-replica-light text-gray-300 hover:text-white transition-colors uppercase">DDM COMPANY</a>
+            <a href="https://ddmrentacar.rs" target="_blank" rel="noopener noreferrer" className="text-xs font-replica-light text-gray-300 hover:text-white transition-colors uppercase">DDM RENT A CAR</a>
+            <a href="https://povuci.rs" target="_blank" rel="noopener noreferrer" className="text-xs font-replica-light text-gray-300 hover:text-white transition-colors uppercase">POVUCI.RS</a>
+            <a href="https://keeway.rs" target="_blank" rel="noopener noreferrer" className="text-xs font-replica-light text-gray-300 hover:text-white transition-colors uppercase">KEEWAY SRBIJA</a>
           </div>
         </div>
 
@@ -94,26 +91,15 @@ export default function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="text-lg flex flex-col font-replica-light text-gray-500">
             <span className="font-replica font-bold text-gray-400">Keeway</span>
             GROUP
           </div>
           
-          <div className="text-[10px] font-replica-light text-gray-500 text-center flex-1">
-            <p className="mb-2">MBP MOTO s.r.l © Copyright - 2026 Keeway - All Rights Reserved</p>
-            <div className="flex gap-4 justify-center">
-              <Link href="#" className="hover:text-white transition-colors">Pravila i uslovi</Link>
-              <Link href="#" className="hover:text-white transition-colors">Politika privatnosti</Link>
-              <Link href="#" className="hover:text-white transition-colors">Politika kolačića</Link>
-            </div>
+          <div className="text-xs font-replica-light text-gray-400 text-center md:text-right">
+            <p>Morbidelli Srbija © Copyright {new Date().getFullYear()} — Član DDM Grupe. Sva prava zadržana.</p>
           </div>
-
-          <button className="flex items-center justify-between w-32 px-4 py-2 border border-track-cyan rounded-full text-xs font-replica bg-transparent hover:bg-white/5 transition-colors">
-            <Globe className="w-4 h-4 text-track-cyan" />
-            <span className="mx-2">INT - EN</span>
-            <ChevronDown className="w-4 h-4 text-gray-400" />
-          </button>
         </div>
         
       </div>
