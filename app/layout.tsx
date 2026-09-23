@@ -4,30 +4,17 @@ import "leaflet/dist/leaflet.css";
 import "./globals.css";
 
 const replica = localFont({
-  src: [
-    {
-      path: "./fonts/Replica-Light.ttf",
-      weight: "300",
-      style: "normal",
-    },
-    {
-      path: "./fonts/ReplicaPro.ttf",
-      weight: "500",
-      style: "normal",
-    },
-    {
-      path: "./fonts/Replica-Bold.ttf",
-      weight: "700",
-      style: "normal",
-    }
-  ],
+  src: "./fonts/ReplicaPro.ttf",
   variable: "--font-replica-local",
+  weight: "500",
+  style: "normal",
 });
 
 const replicaLight = localFont({
-  src: "./fonts/Replica-Light.ttf",
+  src: "./fonts/ReplicaPro.ttf",
   variable: "--font-replica-light-local",
-  weight: "300",
+  weight: "500",
+  style: "normal",
 });
 
 export const metadata: Metadata = {
