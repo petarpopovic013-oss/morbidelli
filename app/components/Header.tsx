@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ChevronRight } from "lucide-react";
 import MegaMenu from "./MegaMenu";
 
 export default function Header() {
@@ -196,9 +196,7 @@ export default function Header() {
             onClick={() => setIsMobileMenuOpen(false)}
           >
             <span className="font-replica text-base">Naslovna</span>
-            <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 1L6 6L1 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+            <ChevronRight aria-hidden="true" className="h-4 w-4" />
           </Link>
 
           <Link 
@@ -207,9 +205,7 @@ export default function Header() {
             onClick={() => setIsMobileMenuOpen(false)}
           >
             <span className="font-replica text-base">O nama</span>
-            <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 1L6 6L1 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+            <ChevronRight aria-hidden="true" className="h-4 w-4" />
           </Link>
 
           <Link 
@@ -218,9 +214,7 @@ export default function Header() {
             onClick={() => setIsMobileMenuOpen(false)}
           >
             <span className="font-replica text-base">Novosti</span>
-            <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 1L6 6L1 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+            <ChevronRight aria-hidden="true" className="h-4 w-4" />
           </Link>
 
           <Link 
@@ -229,9 +223,7 @@ export default function Header() {
             onClick={() => setIsMobileMenuOpen(false)}
           >
             <span className="font-replica text-base">Dodatna oprema</span>
-            <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 1L6 6L1 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+            <ChevronRight aria-hidden="true" className="h-4 w-4" />
           </Link>
 
           <Link 
@@ -240,9 +232,7 @@ export default function Header() {
             onClick={() => setIsMobileMenuOpen(false)}
           >
             <span className="font-replica text-base">Prodajna mesta i servisi</span>
-            <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 1L6 6L1 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+            <ChevronRight aria-hidden="true" className="h-4 w-4" />
           </Link>
 
           <Link 
@@ -251,9 +241,7 @@ export default function Header() {
             onClick={() => setIsMobileMenuOpen(false)}
           >
             <span className="font-replica text-base">Kontakt</span>
-            <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 1L6 6L1 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+            <ChevronRight aria-hidden="true" className="h-4 w-4" />
           </Link>
         </div>
         

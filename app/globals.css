@@ -105,3 +105,85 @@ body {
   background-color: #5ACCF0;
   color: #ffffff;
 }
+
+/* Store locator map */
+.leaflet-container {
+  font-family: 'Serbian Fix', var(--font-replica-local), var(--font-inter-local), sans-serif;
+}
+
+.leaflet-control-zoom {
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: 0 8px 28px rgb(0 0 0 / 14%) !important;
+}
+
+.leaflet-control-zoom a {
+  border: 0 !important;
+  border-radius: 0 !important;
+  color: #000 !important;
+}
+
+.leaflet-control-zoom a:hover {
+  background: #5ACCF0 !important;
+}
+
+.leaflet-control-attribution {
+  background: rgb(255 255 255 / 85%) !important;
+  font-size: 9px !important;
+}
+
+.morbidelli-map-marker-wrapper {
+  background: transparent;
+  border: 0;
+}
+
+.morbidelli-map-marker {
+  position: relative;
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 3px solid #fff;
+  border-radius: 50% 50% 50% 0;
+  box-shadow: 0 6px 18px rgb(0 0 0 / 30%);
+  transform: rotate(-45deg);
+  transition: scale 180ms ease, box-shadow 180ms ease;
+}
+
+.morbidelli-map-marker > span {
+  width: 8px;
+  height: 8px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+}
+
+.morbidelli-map-marker.is-sales {
+  background: #5ACCF0;
+}
+
+.morbidelli-map-marker.is-service {
+  background: #FF212A;
+}
+
+.morbidelli-map-marker.is-mixed {
+  background: linear-gradient(135deg, #5ACCF0 0 50%, #FF212A 50% 100%);
+}
+
+.morbidelli-map-marker.is-active {
+  z-index: 2;
+  box-shadow: 0 0 0 5px rgb(0 0 0 / 16%), 0 9px 24px rgb(0 0 0 / 32%);
+  scale: 1.2;
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  border-radius: 0 !important;
+}
+
+.leaflet-popup-content-wrapper {
+  box-shadow: 0 16px 45px rgb(0 0 0 / 20%) !important;
+}
+
+.leaflet-popup-content {
+  margin: 18px !important;
+}

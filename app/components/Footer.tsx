@@ -99,6 +99,9 @@ export default function Footer() {
           
           <div className="text-xs font-replica-light text-gray-400 text-center md:text-right">
             <p>Morbidelli Srbija © Copyright {new Date().getFullYear()} — Član DDM Grupe. Sva prava zadržana.</p>
+            <p className="mt-2 text-[10px] uppercase tracking-[0.16em] text-gray-500">
+              Developed by <span className="text-gray-300">Petar Popović</span>
+            </p>
           </div>
         </div>
         
