@@ -1,14 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Inter } from "next/font/google";
 import "leaflet/dist/leaflet.css";
 import "./globals.css";
-
-const inter = Inter({
-  subsets: ["latin-ext"],
-  variable: "--font-inter-local",
-  weight: ["100", "200", "300", "400", "500", "700"],
-});
 
 const replica = localFont({
   src: [
@@ -50,7 +43,7 @@ export default function RootLayout({
   return (
     <html
       lang="sr"
-      className={`${replica.variable} ${replicaLight.variable} ${inter.variable} h-full antialiased`}
+      className={`${replica.variable} ${replicaLight.variable} h-full antialiased`}
     >
       <head>
         <link
