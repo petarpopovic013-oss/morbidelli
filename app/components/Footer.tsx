@@ -10,7 +10,7 @@ export default function Footer() {
       <div className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-[45%] w-[1040px] h-[1040px] lg:w-[1560px] lg:h-[1560px] pointer-events-none z-0">
         <Image
           src="/logos/Heritage-Icon-Logo-Solid-Black-WB.webp"
-          alt="Watermark"
+          alt=""
           fill
           className="object-contain"
         />
@@ -57,16 +57,16 @@ export default function Footer() {
           <div className="flex flex-col gap-3 items-center md:items-start text-center md:text-left">
             <h4 className="font-replica text-track-cyan text-xs mb-2 uppercase tracking-wide">BRZI LINKOVI</h4>
             <Link href="/" className="text-xs font-replica-light text-gray-300 hover:text-white transition-colors uppercase">NASLOVNA</Link>
-            <Link href="/about" className="text-xs font-replica-light text-gray-300 hover:text-white transition-colors uppercase">O NAMA</Link>
+            <Link href="/o-nama" className="text-xs font-replica-light text-gray-300 hover:text-white transition-colors uppercase">O NAMA</Link>
             <Link href="/novosti" className="text-xs font-replica-light text-gray-300 hover:text-white transition-colors uppercase">NOVOSTI</Link>
           </div>
 
           {/* Column 2 */}
           <div className="flex flex-col gap-3 items-center md:items-start text-center md:text-left">
             <h4 className="font-replica text-track-cyan text-xs mb-2 uppercase tracking-wide">PRODAJA I SERVIS</h4>
-            <Link href="/equipment" className="text-xs font-replica-light text-gray-300 hover:text-white transition-colors uppercase">DODATNA OPREMA</Link>
-            <Link href="/stores" className="text-xs font-replica-light text-gray-300 hover:text-white transition-colors uppercase">PRODAJNA MESTA I SERVISI</Link>
-            <Link href="/contact" className="text-xs font-replica-light text-gray-300 hover:text-white transition-colors uppercase">KONTAKTIRAJTE NAS</Link>
+            <Link href="/dodatna-oprema" className="text-xs font-replica-light text-gray-300 hover:text-white transition-colors uppercase">DODATNA OPREMA</Link>
+            <Link href="/prodajna-mesta" className="text-xs font-replica-light text-gray-300 hover:text-white transition-colors uppercase">PRODAJNA MESTA I SERVISI</Link>
+            <Link href="/kontakt" className="text-xs font-replica-light text-gray-300 hover:text-white transition-colors uppercase">KONTAKTIRAJTE NAS</Link>
           </div>
 
           {/* Column 3 */}

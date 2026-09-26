@@ -7,9 +7,10 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface GallerySlideshowProps {
   images: string[];
+  motorcycleName: string;
 }
 
-export default function GallerySlideshow({ images }: GallerySlideshowProps) {
+export default function GallerySlideshow({ images, motorcycleName }: GallerySlideshowProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   if (!images || images.length === 0) return null;
@@ -36,7 +37,7 @@ export default function GallerySlideshow({ images }: GallerySlideshowProps) {
           >
             <Image
               src={images[currentIndex]}
-              alt={`Slika galerije ${currentIndex + 1}`}
+              alt={`${motorcycleName} — fotografija ${currentIndex + 1}`}
               fill
               className="object-contain"
               sizes="(max-width: 1024px) 100vw, 1024px"
@@ -48,15 +49,17 @@ export default function GallerySlideshow({ images }: GallerySlideshowProps) {
           <>
             <button
               onClick={prevSlide}
+              aria-label="Prethodna fotografija"
               className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 hover:bg-white text-black flex items-center justify-center rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-all z-10"
             >
-              <ChevronLeft className="w-6 h-6" />
+              <ChevronLeft aria-hidden="true" className="w-6 h-6" />
             </button>
             <button
               onClick={nextSlide}
+              aria-label="Sledeća fotografija"
               className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 hover:bg-white text-black flex items-center justify-center rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-all z-10"
             >
-              <ChevronRight className="w-6 h-6" />
+              <ChevronRight aria-hidden="true" className="w-6 h-6" />
             </button>
             
             <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
@@ -64,6 +67,7 @@ export default function GallerySlideshow({ images }: GallerySlideshowProps) {
                 <button
                   key={i}
                   onClick={() => setCurrentIndex(i)}
+                  aria-label={`Prikaži fotografiju ${i + 1}`}
                   className={`w-2.5 h-2.5 rounded-full transition-all ${
                     i === currentIndex ? 'bg-black w-6' : 'bg-black/40 hover:bg-black/60'
                   }`}
@@ -80,11 +84,12 @@ export default function GallerySlideshow({ images }: GallerySlideshowProps) {
             <button
               key={i}
               onClick={() => setCurrentIndex(i)}
+              aria-label={`Prikaži ${motorcycleName} fotografiju ${i + 1}`}
               className={`relative w-24 h-16 shrink-0 rounded-md overflow-hidden transition-all ${
                 i === currentIndex ? 'ring-2 ring-black opacity-100' : 'opacity-50 hover:opacity-100'
               }`}
             >
-              <Image src={img} alt={`Sličica ${i + 1}`} fill className="object-cover" />
+              <Image src={img} alt={`${motorcycleName} — sličica ${i + 1}`} fill className="object-cover" />
             </button>
           ))}
         </div>

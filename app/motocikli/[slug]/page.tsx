@@ -7,6 +7,8 @@ import TechSpecsAccordion from './TechSpecsAccordion';
 import GallerySlideshow from './GallerySlideshow';
 import ExpandableDescription from './ExpandableDescription';
 import { Metadata } from 'next';
+import StructuredData from '@/app/components/StructuredData';
+import { absoluteUrl, truncateDescription } from '@/app/lib/seo';
 
 export async function generateStaticParams() {
   const motorcycles = await getMotorcycles();
@@ -21,13 +23,35 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   if (!motorcycle) {
     return {
-      title: 'Motorcycle Not Found - Morbidelli Srbija',
+      title: 'Model nije pronađen',
+      robots: { index: false, follow: false },
     };
   }
 
+  const description = truncateDescription(
+    motorcycle.short_description ||
+      `Saznajte cenu, specifikacije, opremu i karakteristike motocikla ${motorcycle.name}.`,
+  );
+  const pathname = `/motocikli/${motorcycle.slug}`;
+
   return {
-    title: `${motorcycle.name} - Morbidelli Srbija`,
-    description: motorcycle.short_description || `Otkrijte detalje za model ${motorcycle.name}.`,
+    title: motorcycle.name,
+    description,
+    alternates: { canonical: pathname },
+    openGraph: {
+      url: pathname,
+      title: `${motorcycle.name} — cena i specifikacije`,
+      description,
+      images: motorcycle.image_url
+        ? [{ url: motorcycle.image_url, alt: `${motorcycle.name} motocikl` }]
+        : undefined,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: motorcycle.name,
+      description,
+      images: motorcycle.image_url ? [motorcycle.image_url] : undefined,
+    },
   };
 }
 
@@ -150,7 +174,7 @@ export default async function MotorcyclePage({ params }: { params: Promise<{ slu
 
   // 2. Add custom specifications from JSON
   if (motorcycle.specifications && Array.isArray(motorcycle.specifications)) {
-    motorcycle.specifications.forEach((spec: any) => {
+    motorcycle.specifications.forEach((spec) => {
       if (spec.category && spec.label && spec.value) {
         // Find existing category
         const existingCat = baseCategories.find(c => c.title.toLowerCase() === spec.category.toLowerCase());
@@ -168,9 +192,59 @@ export default async function MotorcyclePage({ params }: { params: Promise<{ slu
   }
 
   const cleanName = motorcycle.name.replace('Morbidelli ', '').replace('MBP ', '');
+  const productUrl = absoluteUrl(`/motocikli/${motorcycle.slug}`);
+  const productStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "@id": `${productUrl}#product`,
+    name: motorcycle.name,
+    url: productUrl,
+    image: [motorcycle.image_url, ...(motorcycle.gallery || [])].filter(Boolean),
+    description:
+      motorcycle.short_description || `Morbidelli ${cleanName} motocikl dostupan u Srbiji.`,
+    sku: motorcycle.slug,
+    model: cleanName,
+    brand: {
+      "@type": "Brand",
+      name: "Morbidelli",
+    },
+    category: motorcycle.category || "Motocikli",
+    releaseDate: motorcycle.model_year ? String(motorcycle.model_year) : undefined,
+    offers: motorcycle.price
+      ? {
+          "@type": "Offer",
+          url: productUrl,
+          priceCurrency: "EUR",
+          price: motorcycle.price,
+          availability: "https://schema.org/InStock",
+          itemCondition: "https://schema.org/NewCondition",
+          seller: { "@id": `${absoluteUrl("/")}#organization` },
+        }
+      : undefined,
+    additionalProperty: [
+      motorcycle.displacement
+        ? { "@type": "PropertyValue", name: "Zapremina", value: `${motorcycle.displacement} cc` }
+        : null,
+      motorcycle.power
+        ? { "@type": "PropertyValue", name: "Snaga", value: motorcycle.power }
+        : null,
+      motorcycle.curb_weight
+        ? { "@type": "PropertyValue", name: "Masa", value: `${motorcycle.curb_weight} kg` }
+        : null,
+    ].filter(Boolean),
+  };
+  const breadcrumbStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Naslovna", item: absoluteUrl("/") },
+      { "@type": "ListItem", position: 2, name: motorcycle.name, item: productUrl },
+    ],
+  };
 
   return (
     <>
+      <StructuredData data={[productStructuredData, breadcrumbStructuredData]} />
       <Header />
       <main className="flex-grow flex flex-col w-full bg-[#E5E5E5] pt-[100px] min-h-screen">
         
@@ -246,7 +320,7 @@ export default async function MotorcyclePage({ params }: { params: Promise<{ slu
         {/* Gallery Section */}
         {motorcycle.gallery && motorcycle.gallery.length > 0 && (
           <section className="bg-white w-full pb-16">
-            <GallerySlideshow images={motorcycle.gallery} />
+            <GallerySlideshow images={motorcycle.gallery} motorcycleName={motorcycle.name} />
           </section>
         )}
 

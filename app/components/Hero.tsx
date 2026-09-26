@@ -1,6 +1,7 @@
 "use client";
 
-import { Play, X } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, Play, X } from "lucide-react";
 import { useState } from "react";
 
 export default function Hero() {
@@ -30,11 +31,13 @@ export default function Hero() {
         <p className="text-[28px] md:text-[31px] font-replica-light mb-6 leading-none">
           Potpuno novi Morbidelli C652V
         </p>
-        <a href="/motocikli/c652v" className="font-replica text-sm mb-4 hover:text-track-cyan transition-colors leading-none">
-          Saznaj više &gt;&gt;
-        </a>
+        <Link href="/motocikli/c652v" className="mb-4 inline-flex items-center gap-2 font-replica text-sm leading-none transition-colors hover:text-track-cyan">
+          Saznaj više
+          <ArrowRight aria-hidden="true" className="h-4 w-4" />
+        </Link>
         <button 
           onClick={() => setIsVideoOpen(true)}
+          aria-label="Pusti Morbidelli video"
           className="bg-white/20 hover:bg-white/40 transition-colors w-14 h-10 rounded-lg flex items-center justify-center backdrop-blur-sm"
         >
           <Play fill="white" className="w-5 h-5" />
@@ -47,6 +50,7 @@ export default function Hero() {
           <div className="relative w-full max-w-5xl aspect-video bg-black rounded-xl overflow-hidden shadow-2xl">
             <button 
               onClick={() => setIsVideoOpen(false)}
+              aria-label="Zatvori video"
               className="absolute top-4 right-4 z-10 text-white/70 hover:text-white bg-black/50 hover:bg-black p-2 rounded-full transition-all"
             >
               <X className="w-6 h-6" />

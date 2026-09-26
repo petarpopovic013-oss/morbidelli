@@ -1,9 +1,22 @@
+import type { Metadata } from 'next'
 import Header from '@/app/components/Header'
 import Footer from '@/app/components/Footer'
 import { getNews } from '@/app/actions/news'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Newspaper, ArrowRight } from 'lucide-react'
+
+export const metadata: Metadata = {
+  title: 'Novosti',
+  description:
+    'Najnovije Morbidelli vesti iz Srbije: novi modeli motocikala, predstavljanja, događaji, ponude i priče iz sveta vožnje.',
+  alternates: { canonical: '/novosti' },
+  openGraph: {
+    url: '/novosti',
+    title: 'Morbidelli novosti',
+    description: 'Novi modeli, događaji i aktuelnosti iz sveta Morbidelli motocikala.',
+  },
+}
 
 export const dynamic = 'force-dynamic'
 

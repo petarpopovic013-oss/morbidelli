@@ -69,6 +69,8 @@ export async function createNews(data: Omit<News, 'id' | 'created_at'>) {
 
   revalidatePath('/admin/novosti')
   revalidatePath('/novosti')
+  revalidatePath(`/novosti/${data.slug}`)
+  revalidatePath('/sitemap.xml')
   return { success: true }
 }
 
@@ -85,7 +87,8 @@ export async function updateNews(id: string, data: Partial<Omit<News, 'id' | 'cr
 
   revalidatePath('/admin/novosti')
   revalidatePath('/novosti')
-  revalidatePath(`/novosti/${id}`)
+  if (data.slug) revalidatePath(`/novosti/${data.slug}`)
+  revalidatePath('/sitemap.xml')
   return { success: true }
 }
 
@@ -115,5 +118,7 @@ export async function deleteNews(id: string) {
 
   revalidatePath('/admin/novosti')
   revalidatePath('/novosti')
+  if (newsItem?.slug) revalidatePath(`/novosti/${newsItem.slug}`)
+  revalidatePath('/sitemap.xml')
   return { success: true }
 }

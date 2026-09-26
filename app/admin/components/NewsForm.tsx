@@ -202,7 +202,13 @@ export function NewsForm({ initialData }: { initialData?: News }) {
                 ))}
                 {newImageFiles.map((file, i) => (
                   <div key={`new-${i}`} className="relative w-32 h-32 border border-gray-200 group">
-                    <img src={URL.createObjectURL(file)} alt={`New Image ${i}`} className="w-full h-full object-cover" />
+                    <Image
+                      src={URL.createObjectURL(file)}
+                      alt={`Nova fotografija ${i + 1}`}
+                      fill
+                      unoptimized
+                      className="object-cover"
+                    />
                     <button type="button" onClick={() => removeNewImageFile(i)} className="absolute top-2 right-2 bg-black text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
                       <X className="w-4 h-4" />
                     </button>

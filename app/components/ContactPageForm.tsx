@@ -29,12 +29,12 @@ export default function ContactPageForm() {
         <div className="mb-12">
           <div className="flex items-center gap-4 mb-6">
             <div className="w-12 h-[2px] bg-track-cyan"></div>
-            <h2 className="text-sm font-replica uppercase tracking-widest text-track-cyan">Kontakt</h2>
+            <p className="text-sm font-replica uppercase tracking-widest text-track-cyan">Kontakt</p>
           </div>
-          <h3 className="text-4xl md:text-5xl font-replica-light mb-4 leading-tight text-black">
+          <h1 className="text-4xl md:text-5xl font-replica-light mb-4 leading-tight text-black">
             Imate pitanje? <br />
             <span className="font-replica">Stupite u kontakt sa nama.</span>
-          </h3>
+          </h1>
           <p className="text-lg font-replica-light text-gray-600 mt-6">
             Popunite formu ispod i naš tim će vam odgovoriti u najkraćem mogućem roku.
           </p>
@@ -140,7 +140,7 @@ export default function ContactPageForm() {
       <div className="w-full h-[500px] lg:h-[700px] relative overflow-hidden">
         <Image
           src="/photos/kontakt.jpg"
-          alt="Kontakt"
+          alt="Morbidelli motocikl — kontakt Morbidelli Srbija"
           fill
           className="object-cover object-center"
           sizes="(max-width: 1024px) 100vw, 50vw"

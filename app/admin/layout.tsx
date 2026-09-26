@@ -1,7 +1,13 @@
+import type { Metadata } from 'next'
 import { logout } from '@/app/actions/auth'
 import Link from 'next/link'
 import Image from 'next/image'
 import { LogOut, Globe } from 'lucide-react'
+
+export const metadata: Metadata = {
+  title: 'Administracija',
+  robots: { index: false, follow: false, noarchive: true },
+}
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   return (
