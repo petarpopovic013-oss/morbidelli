@@ -23,19 +23,16 @@ export default function ContactPageForm() {
   };
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-      {/* Leva kolona: Forma */}
-      <div className="w-full">
-        <div className="mb-12">
-          <div className="flex items-center gap-4 mb-6">
-            <div className="w-12 h-[2px] bg-track-cyan"></div>
-            <p className="text-sm font-replica uppercase tracking-widest text-track-cyan">Kontakt</p>
-          </div>
-          <h1 className="text-4xl md:text-5xl font-replica-light mb-4 leading-tight text-black">
-            Imate pitanje? <br />
-            <span className="font-replica">Stupite u kontakt sa nama.</span>
-          </h1>
-          <p className="text-lg font-replica-light text-gray-600 mt-6">
+    <div className="grid grid-cols-1 items-stretch gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(380px,0.82fr)]">
+      <div className="w-full border border-black/10 bg-white p-6 sm:p-8 md:p-10 lg:p-12">
+        <div className="mb-10 border-b border-black/10 pb-8">
+          <span className="mb-3 block font-replica text-xs font-bold uppercase tracking-[0.2em] text-track-cyan">
+            Pošaljite upit
+          </span>
+          <h2 className="font-replica text-3xl font-bold leading-[1.05] text-black md:text-5xl">
+            Stupite u kontakt sa nama
+          </h2>
+          <p className="mt-5 max-w-2xl font-replica-light text-sm leading-relaxed text-gray-600 md:text-base">
             Popunite formu ispod i naš tim će vam odgovoriti u najkraćem mogućem roku.
           </p>
         </div>
@@ -122,7 +119,7 @@ export default function ContactPageForm() {
           <div className="mt-4">
             <button 
               type="submit" 
-              className="group relative inline-flex items-center justify-center px-12 py-4 bg-black text-white overflow-hidden transition-all hover:shadow-lg w-full md:w-auto"
+              className="group relative inline-flex min-h-12 w-full items-center justify-center overflow-hidden bg-black px-12 py-4 text-white transition-all hover:shadow-lg md:w-auto"
             >
               <div className="absolute inset-0 w-full h-full bg-track-cyan transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out z-0"></div>
               <span className="relative z-10 text-sm font-replica uppercase tracking-widest flex items-center gap-2">
@@ -136,8 +133,7 @@ export default function ContactPageForm() {
         </form>
       </div>
 
-      {/* Desna kolona: Slika */}
-      <div className="w-full h-[500px] lg:h-[700px] relative overflow-hidden">
+      <div className="relative min-h-[420px] w-full overflow-hidden border border-black/10 sm:min-h-[520px] lg:min-h-full">
         <Image
           src="/photos/kontakt.jpg"
           alt="Morbidelli motocikl — kontakt Morbidelli Srbija"

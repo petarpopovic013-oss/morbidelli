@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ContactPageForm from "../components/ContactPageForm";
+import InnerPageHero from "../components/InnerPageHero";
 
 export const metadata: Metadata = {
   title: "Kontakt",
@@ -20,10 +21,25 @@ export default function ContactPage() {
   return (
     <>
       <Header />
-      <main className="flex-grow w-full bg-white pt-24 min-h-screen">
-        <div className="container mx-auto px-6 max-w-[1440px] py-16 lg:py-24">
-          <ContactPageForm />
-        </div>
+      <main className="min-h-screen w-full flex-grow bg-white pt-[76px] lg:pt-[88px]">
+        <InnerPageHero
+          eyebrow="Morbidelli Srbija"
+          title="Kontakt"
+          description="Imate pitanje o modelima, cenama, dostupnosti, dodatnoj opremi ili servisu? Pošaljite nam upit i naš tim će vam odgovoriti u najkraćem mogućem roku."
+          summary={
+            <div>
+              <strong className="block font-replica text-3xl font-bold text-black">01</strong>
+              <span className="font-replica-light text-[10px] uppercase tracking-[0.16em] text-gray-500">
+                Mesto za sve upite
+              </span>
+            </div>
+          }
+        />
+        <section className="w-full bg-[#f5f5f3] px-4 py-14 md:px-6 md:py-20 lg:px-12 lg:py-24">
+          <div className="mx-auto max-w-[1440px]">
+            <ContactPageForm />
+          </div>
+        </section>
       </main>
       <Footer />
     </>

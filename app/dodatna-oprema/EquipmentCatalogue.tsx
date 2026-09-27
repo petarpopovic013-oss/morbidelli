@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { X, ZoomIn } from "lucide-react";
 
 export type EquipmentProduct = {
   name: string;
@@ -24,7 +25,39 @@ type EquipmentCatalogueProps = {
 
 export default function EquipmentCatalogue({ categories }: EquipmentCatalogueProps) {
   const [activeId, setActiveId] = useState<EquipmentCategory["id"]>(categories[0].id);
+  const [selectedProduct, setSelectedProduct] = useState<EquipmentProduct | null>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const productTriggerRef = useRef<HTMLButtonElement | null>(null);
   const activeCategory = categories.find((category) => category.id === activeId) ?? categories[0];
+
+  useEffect(() => {
+    if (!selectedProduct) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    closeButtonRef.current?.focus();
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setSelectedProduct(null);
+      if (event.key === "Tab") {
+        event.preventDefault();
+        closeButtonRef.current?.focus();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", handleKeyDown);
+      productTriggerRef.current?.focus();
+    };
+  }, [selectedProduct]);
+
+  const openProduct = (product: EquipmentProduct, trigger: HTMLButtonElement) => {
+    productTriggerRef.current = trigger;
+    setSelectedProduct(product);
+  };
 
   return (
     <section className="px-4 py-16 md:px-6 md:py-24 lg:px-12 lg:py-28">
@@ -148,8 +181,17 @@ export default function EquipmentCatalogue({ categories }: EquipmentCataloguePro
             {activeCategory.products.map((product, index) => (
               <article
                 key={`${product.image}-${product.name}`}
-                className="group grid grid-cols-[96px_1fr] items-center gap-5 border-b border-black/10 py-5 transition-colors duration-300 hover:bg-[#f7f7f5] sm:grid-cols-[150px_1fr] sm:gap-8 sm:py-7 md:grid-cols-[220px_1fr_auto] md:gap-12 md:px-6 lg:grid-cols-[280px_1fr_auto]"
+                className="group relative grid grid-cols-[96px_1fr] items-center gap-5 border-b border-black/10 py-5 transition-colors duration-300 hover:bg-[#f7f7f5] sm:grid-cols-[150px_1fr] sm:gap-8 sm:py-7 md:grid-cols-[220px_1fr_auto] md:gap-12 md:px-6 lg:grid-cols-[280px_1fr_auto]"
               >
+                <button
+                  type="button"
+                  aria-label={`Uvećaj sliku: ${product.name}`}
+                  onClick={(event) => openProduct(product, event.currentTarget)}
+                  className="absolute inset-0 z-10 cursor-zoom-in focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-track-cyan"
+                >
+                  <span className="sr-only">Uvećaj sliku: {product.name}</span>
+                </button>
+
                 <div className="relative aspect-square w-full overflow-hidden bg-[#f3f3f1]">
                   <Image
                     src={product.image}
@@ -171,14 +213,70 @@ export default function EquipmentCatalogue({ categories }: EquipmentCataloguePro
                   </h3>
                 </div>
 
-                <span className="hidden font-replica text-[10px] font-bold tracking-[0.2em] text-gray-400 md:block">
-                  {(index + 1).toString().padStart(2, "0")}
-                </span>
+                <div className="hidden items-center gap-5 md:flex">
+                  <span className="flex items-center gap-2 font-replica text-[9px] font-bold uppercase tracking-[0.16em] text-gray-400 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100">
+                    <ZoomIn aria-hidden="true" className="h-4 w-4" strokeWidth={1.7} />
+                    Uvećaj
+                  </span>
+                  <span className="font-replica text-[10px] font-bold tracking-[0.2em] text-gray-400">
+                    {(index + 1).toString().padStart(2, "0")}
+                  </span>
+                </div>
               </article>
             ))}
           </div>
         </div>
       </div>
+
+      {selectedProduct && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="equipment-lightbox-title"
+          onMouseDown={(event) => {
+            if (event.target === event.currentTarget) setSelectedProduct(null);
+          }}
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-3 backdrop-blur-sm sm:p-6 md:p-10"
+        >
+          <div className="relative flex h-full max-h-[900px] w-full max-w-[1200px] flex-col bg-white shadow-2xl">
+            <div className="flex min-h-16 items-center justify-between gap-5 border-b border-black/10 px-4 sm:px-6">
+              <div className="min-w-0 py-3">
+                {selectedProduct.model && (
+                  <p className="mb-1 font-replica text-[9px] font-bold uppercase tracking-[0.2em] text-track-cyan">
+                    Morbidelli {selectedProduct.model}
+                  </p>
+                )}
+                <h2
+                  id="equipment-lightbox-title"
+                  className="truncate font-replica text-sm font-bold text-black sm:text-base"
+                >
+                  {selectedProduct.name}
+                </h2>
+              </div>
+              <button
+                ref={closeButtonRef}
+                type="button"
+                onClick={() => setSelectedProduct(null)}
+                aria-label="Zatvori uvećanu sliku"
+                className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-black/15 text-black transition-colors hover:border-black hover:bg-black hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-track-cyan focus-visible:ring-offset-2"
+              >
+                <X aria-hidden="true" className="h-5 w-5" strokeWidth={1.7} />
+              </button>
+            </div>
+
+            <div className="relative min-h-0 flex-1 bg-[#f3f3f1]">
+              <Image
+                src={selectedProduct.image}
+                alt={selectedProduct.name}
+                fill
+                priority
+                sizes="(max-width: 767px) 100vw, 1200px"
+                className="object-contain p-3 sm:p-6 md:p-10"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
