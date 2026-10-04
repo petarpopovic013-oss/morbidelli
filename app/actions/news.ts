@@ -2,6 +2,7 @@
 
 import { supabaseAdmin } from '@/app/utils/supabase/server'
 import { revalidatePath } from 'next/cache'
+import { requireAdmin } from '@/app/utils/admin-session'
 
 export type News = {
   id: string
@@ -58,6 +59,7 @@ export async function getNewsBySlug(slug: string) {
 }
 
 export async function createNews(data: Omit<News, 'id' | 'created_at'>) {
+  await requireAdmin()
   const { error } = await supabaseAdmin
     .from('morbidelli_news')
     .insert([data])
@@ -75,6 +77,7 @@ export async function createNews(data: Omit<News, 'id' | 'created_at'>) {
 }
 
 export async function updateNews(id: string, data: Partial<Omit<News, 'id' | 'created_at'>>) {
+  await requireAdmin()
   const { error } = await supabaseAdmin
     .from('morbidelli_news')
     .update(data)
@@ -95,6 +98,7 @@ export async function updateNews(id: string, data: Partial<Omit<News, 'id' | 'cr
 import { deleteNewsImage } from '@/app/actions/news-storage'
 
 export async function deleteNews(id: string) {
+  await requireAdmin()
   // Prvo dohvati vest da bismo videli da li ima slike
   const newsItem = await getNewsById(id)
 

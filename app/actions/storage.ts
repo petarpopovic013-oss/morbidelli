@@ -1,13 +1,20 @@
 'use server'
 
 import { supabaseAdmin } from '@/app/utils/supabase/server'
+import { requireAdmin } from '@/app/utils/admin-session'
 import sharp from 'sharp'
 
+const MAX_IMAGE_BYTES = 8 * 1024 * 1024
+const ALLOWED_IMAGE_TYPES = new Set(['image/jpeg', 'image/png', 'image/webp'])
+
 export async function uploadImage(formData: FormData) {
-  const file = formData.get('file') as File
-  if (!file) {
+  await requireAdmin()
+  const file = formData.get('file')
+  if (!(file instanceof File) || file.size === 0) {
     return { error: 'Nije priložen fajl.' }
   }
+  if (!ALLOWED_IMAGE_TYPES.has(file.type)) return { error: 'Dozvoljene su JPEG, PNG i WebP slike.' }
+  if (file.size > MAX_IMAGE_BYTES) return { error: 'Slika ne sme biti veća od 8 MB.' }
 
   try {
     const buffer = await file.arrayBuffer()
@@ -44,6 +51,8 @@ export async function uploadImage(formData: FormData) {
 }
 
 export async function deleteImage(path: string) {
+  await requireAdmin()
+  if (!path || path.includes('..')) return { error: 'Neispravna putanja slike.' }
   // Ako je prosleđen puni URL, izvuci samo putanju unutar bucketa
   let filePath = path
   const searchString = '/storage/v1/object/public/morbidelli_images/'

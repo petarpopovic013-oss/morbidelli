@@ -3,6 +3,7 @@
 import { supabaseAdmin } from '@/app/utils/supabase/server'
 import { revalidatePath } from 'next/cache'
 import { MotorcycleCategory } from '@/app/constants/motorcycles'
+import { requireAdmin } from '@/app/utils/admin-session'
 
 export type Motorcycle = {
   id: string
@@ -114,6 +115,7 @@ export async function getMotorcycleBySlug(slug: string) {
 }
 
 export async function createMotorcycle(data: Omit<Motorcycle, 'id' | 'created_at'>) {
+  await requireAdmin()
   const { error } = await supabaseAdmin
     .from('morbidelli_motorcycles')
     .insert([data])
@@ -131,6 +133,7 @@ export async function createMotorcycle(data: Omit<Motorcycle, 'id' | 'created_at
 }
 
 export async function updateMotorcycle(id: string, data: Partial<Omit<Motorcycle, 'id' | 'created_at'>>) {
+  await requireAdmin()
   const { error } = await supabaseAdmin
     .from('morbidelli_motorcycles')
     .update(data)
@@ -149,6 +152,7 @@ export async function updateMotorcycle(id: string, data: Partial<Omit<Motorcycle
 }
 
 export async function deleteMotorcycle(id: string) {
+  await requireAdmin()
   const motorcycle = await getMotorcycleById(id)
   const { error } = await supabaseAdmin
     .from('morbidelli_motorcycles')
