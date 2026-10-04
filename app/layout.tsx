@@ -115,7 +115,7 @@ const organizationStructuredData = {
     "@type": "Country",
     name: "Srbija",
   },
-  sameAs: ["https://www.instagram.com/ddmcompany.ns/"],
+  sameAs: ["https://www.instagram.com/morbidelli_srbija/"],
   parentOrganization: {
     "@type": "Organization",
     name: "DDM Company doo",

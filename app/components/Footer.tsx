@@ -36,11 +36,11 @@ export default function Footer() {
           <div className="flex items-center gap-4">
             <span className="text-track-cyan font-replica-light text-xs mr-4">Pronađite nas na društvenim mrežama:</span>
             <a
-              href="https://www.instagram.com/ddmcompany.ns/"
+              href="https://www.instagram.com/morbidelli_srbija/"
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 rounded-md bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 transition-colors text-white"
-              aria-label="Instagram @ddmcompany.ns"
+              aria-label="Instagram @morbidelli_srbija"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
